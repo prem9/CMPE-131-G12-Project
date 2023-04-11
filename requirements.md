@@ -9,9 +9,9 @@
 7. User messages are stored and saved
 8. User account has two factor authentication when logging in
 9. Confirmation email sent when user creates account
-10. User can view messages/emails
-11. Account creation/database
-12. Sign-in
+10. User can view messages or emails
+11. System must store the registered account of a user securely into its database
+12. System must provide verification measures to provide the registered user a secure sign-in process
 
 ## Non-functional Requirements
 
