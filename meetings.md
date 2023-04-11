@@ -1,5 +1,7 @@
 
 ## Meetings
+Team plans to have a meeting on Fridays during or after class time
+Meeting Time Length: 30-45 minutes
 
 ### 2023-4-07
 - People who attended: Prem Agarwal, Alvin Dang, Justin Chen
