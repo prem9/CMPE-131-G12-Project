@@ -155,3 +155,48 @@ Please make sure that all addresses are properly formed.
   2. System does not create the account on the server
   3. System deletes given information user has given to create the account
 
+7. User can sign in to the email client with their registered account
+- **Pre-condition:** User has already registered, User has entered their email/password in the designated fields,   
+User is currently on the sign in portal
+
+- **Trigger:** User clicks on the "Sign In" button
+
+- **Primary Sequence:**
+  
+  1. System validates the provided information stored in its database
+  2. After validation, system authenticates the user and grants access to their account
+  3. System displays a message to the user that confirms they have successfully signed into their account
+
+- **Primary Postconditions:** System redirects to the email client page associated with the signed-in user
+
+- **Alternate Sequence:** 
+
+  1. System does not redirect the user to their email client page
+  2. System displays an error message indicating that the provided email or password information is invalid
+  3. System will again request the user to fill in the required information to sign in
+  
+8. User can register for an account on the website 
+- **Pre-condition:** User has visited the website, User has a valid email address and password prepared
+
+- **Trigger:** User clicks on a link that redirects them to the registration page of the website 
+
+- **Primary Sequence:**
+  
+  1. User is navigated to the website's registration page
+  2. User fills in the required fields such as email address and password
+  3. User is offered the option to check a box to opt for two-factor authentication
+  4. If user opts for two-factor authentication, system will request the user to enter a PIN number 
+  5. System will display a CAPTCHA to the user to verify their identity
+  6. User accepts the terms and conditions
+  7. User clicks on the "register" button
+  8. System validates the information and creates the account for the user and stores the information of the user in 
+     its database
+
+- **Primary Postconditions:** System displays a message to the user indicating that they have successfully registered
+
+- **Alternate Sequence:** 
+
+  1. System will display an error message if the email already exists in its database or missing fields on the   
+     registration page
+  2. System will prompt the user to correct the information provided
+  3. System will request the user to attempt the CAPTCHA again if the user has failed to verify
