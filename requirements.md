@@ -1,3 +1,9 @@
+## Functional Requirements Assigned Tasks:
+Alvin: 1-3
+Prem: 4-6
+Julie: 7-9
+Justin 10-12
+
 ## Functional Requirements
 
 1. User can send a message to one or more users when pressing the send button
