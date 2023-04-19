@@ -21,3 +21,9 @@ Meeting Time Length: 30-45 minutes
 		- Julie: Added 2 non-functional requirements. Edited Use Case 5 & 6. Changed Use Case 7 & 8.
 		- Justin: Edited Functional Requirements 11 & 12. Changed Use Case 8. Fixed formatting on Use Case 6.
 	- Created name for project.
+
+### 2023-4-21
+- People who attended: Prem Agarwal, Alvin Dang, Justin Chen
+- Team updates:
+	- Prem & Justin changed functional requirement 8 (Use Case 6) from 2FA to ___
+	- 
