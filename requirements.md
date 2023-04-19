@@ -19,7 +19,7 @@ Justin: 7-8
 5. User can reply to a sender's email or send the email to someone else
 6. User can share lists to other people
 7. edit user profile
-8. User account has two factor authentication when logging in
+8. User can sign out of their account
 9.  Ability to send images/Urls
 10. User can view messages or emails
 11. Users should be able to sort their emails based on different criteria such as date, sender, and subject
@@ -157,29 +157,26 @@ Please make sure that all addresses are properly formed.
  
 
 
-6. User account has two factor authentication when logging in
-- **Pre-condition:** user must have another device to receive a secure code 
+6. User can sign out of their account
+- **Pre-condition:** user must be signed into their account
 
-- **Trigger:** User clicks 'login' button
+- **Trigger:** User clicks 'sign-out' button
 
 - **Primary Sequence:**
   
-  1. User enters username/password 
-  2. Popup screen appears when user presses login
-  3. System prompts user to enter secure code sent to attached phone number
-  4. User enters code
-  5. System allows user to access account
+  1. System prompts are you sure with a yes or no option
+  2. User clicks 'yes'
+  3. System redirects user to log-in page
 
-
-- **Primary Postconditions:** System allows user to access their account 
+- **Primary Postconditions:** User is signed-out and is unable to access their account without signing in
 
 - **Alternate Sequence:** 
   
-  1.User does not have access to phone attached to the account
+  1. System prompts are you sure with a 'yes' or 'no' option
 
-  2.User can’t login
+  2. User clicks 'no'
   
-  3.System sends user back to login page
+  3. System redirects to main page for signed-in user
 
 7. User can sign in to the email client with their registered account
 - **Pre-condition:** User has already registered, User has entered their email/password in the designated fields,   
