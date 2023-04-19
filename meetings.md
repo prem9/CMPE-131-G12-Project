@@ -17,6 +17,7 @@ Meeting Time Length: 30-45 minutes
 - Team updates:
 	- Team corrected "Milestone 1: Requirements" issues raised from Canvas submission comments
 		- Alvin: Edited Functional Use Case 1 & 2. Fixed typo on Use Case 5.
-		- Prem: 
+		- Prem: Change functional requirement 5 & 6. Edited Functional Use Case 3 & 4.
 		- Julie: Added 2 non-functional requirements. Edited Use Case 5 & 6. Changed Use Case 7 & 8.
 		- Justin: Edited Functional Requirements 11 & 12. Changed Use Case 8. Fixed formatting on Use Case 6.
+	- Created name for project.
