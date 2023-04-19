@@ -126,26 +126,26 @@ Please make sure that all addresses are properly formed.
   3. System prompts user to input in new time
 
 
-5. edit user profile (pfp,username,password)
+5. edit user profile (profile picture,username,password)
 - **Pre-condition:** User must have an existing account
 
 - **Trigger:** User presses 'edit pofile' button
 
 - **Primary Sequence:**
   
- 1. User chooses to edit their pfp
- 2. System prompts user to allow access to photos to upload new pfp
+ 1. User chooses to edit their profile picture
+ 2. System prompts user to allow access to photos to upload new profile picture
  3. User gives system permission and chooses a picture from camera roll
  4. System prompts user to confirm their choice
- 5. System changes pfp 
+ 5. System changes profile picture
 
 
-- **Primary Postconditions:** System server saves new pfp as is viewable by other users
+- **Primary Postconditions:** System server saves new profile picture and it is viewable by other users
 
 - **Alternate Sequence:** 
   
   1. User doesn't allow access to photos
-  2. System can't change pfp
+  2. System can't change profile picture
  
 
 
