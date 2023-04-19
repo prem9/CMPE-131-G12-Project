@@ -138,6 +138,10 @@ Please make sure that all addresses are properly formed.
  3. User gives system permission and chooses a picture from camera roll
  4. System prompts user to confirm their choice
  5. System changes profile picture
+ 6. User chooses to edit username/password
+ 7. system prompts user to enter new changes
+ 8. system prompts user to confirm their choices
+ 9. system saves changes
 
 
 - **Primary Postconditions:** System server saves new profile picture and it is viewable by other users
@@ -158,18 +162,18 @@ Please make sure that all addresses are properly formed.
   
   1. User enters username/password 
   2. Popup screen appears when user presses login
-  3. System prompts user to enter secure code sent to attached phone #
+  3. System prompts user to enter secure code sent to attached phone number
   4. User enters code
   5. System allows user to access account
 
 
-- **Primary Postconditions:** System's server contains user's information on logging into the website
+- **Primary Postconditions:** System allows user to access their account 
 
 - **Alternate Sequence:** 
   
   1.User does not have access to phone attached to the account
   2.User can’t login
-  3.System prompts user to go through password recovery process
+  3.System sends user back to login
 
 7. User can sign in to the email client with their registered account
 - **Pre-condition:** User has already registered, User has entered their email/password in the designated fields,   
