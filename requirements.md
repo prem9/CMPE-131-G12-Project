@@ -172,7 +172,9 @@ Please make sure that all addresses are properly formed.
 - **Alternate Sequence:** 
   
   1.User does not have access to phone attached to the account
+
   2.User can’t login
+  
   3.System sends user back to login page
 
 7. User can sign in to the email client with their registered account
