@@ -16,8 +16,8 @@ Justin: 7-8
 2. User can compose an email when clicking on the compose button
 3. User can delete an email by checking the box of the email that the user wants to delete
 4. User can create multiple lists of objectives which can be marked complete or incomplete with a deadline attatched to them.
-5. 
-6. 
+5. User can reply to a sender's email or send the email to someone else
+6. User can share lists to other people
 7. edit user profile
 8. User account has two factor authentication when logging in
 9.  Ability to send images/Urls
