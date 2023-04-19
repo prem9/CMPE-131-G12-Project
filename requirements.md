@@ -12,17 +12,17 @@ Justin 10-12
 4. User can create an objective which can be marked as completed or uncompleted
 5. User can create multiple lists with different titles
 6. User can set deadlines for these objectives
-7. User messages are stored and saved
+7. edit user profile
 8. User account has two factor authentication when logging in
-9. Confirmation email sent when user creates account
+9.  Ability to send images/Urls
 10. User can view messages or emails
 11. Users should be able to sort their emails based on different criteria such as date, sender, and subject
 12. System should allow users to format their emails using various font styles, bold text, sizes, and colors when composing an email
 
 ## Non-functional Requirements
 
-1. Profile picture for all users
-2. Username(not email address) for all users
+1. Emails/chats should be sent/received in no more than 20 secs
+2. Platform design is in english only
 
 ## Use Cases
 
@@ -122,24 +122,27 @@ Please make sure that all addresses are properly formed.
   3. System prompts user to input in new time
 
 
-5. User messages are stored and saved
-- **Pre-condition:** User is logged in, User is ready to send a message to recipient(s)
+5. edit user profile
+- **Pre-condition:** User must have an existing account
 
-- **Trigger:** User sends a message
+- **Trigger:** User presses 'edit pofile' button
 
 - **Primary Sequence:**
   
-  1. System sees that User has sent a message to a recipient(s)
-  2. System saves message on server's library 
-  3. System saves information related to the message like a recipient and sender
+ 1. User chooses to edit their pfp
+ 2. System prompts user to allow access to photos to upload new pfp
+ 3. User gives system permission and chooses a picture from camera roll
+ 4. System prompts user to confirm their choice
+ 5. System changes pfp 
 
-- **Primary Postconditions:** Information around the message is saved on the system.
+
+- **Primary Postconditions:** System server saves new pfp as is viewable by other users
 
 - **Alternate Sequence:** 
   
-  1. System saves message
-  2. System's server's library is full
-  3. System delete's user's oldest message
+  1. User doesn't allow access to photos
+  2. System can't change pfp
+ 
 
 
 6. System sends a confirmation email when user attempts to create an account
