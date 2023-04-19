@@ -173,7 +173,7 @@ Please make sure that all addresses are properly formed.
   
   1.User does not have access to phone attached to the account
   2.User can’t login
-  3.System sends user back to login
+  3.System sends user back to login page
 
 7. User can sign in to the email client with their registered account
 - **Pre-condition:** User has already registered, User has entered their email/password in the designated fields,   
