@@ -16,7 +16,7 @@ Meeting Time Length: 30-45 minutes
 - People who attended: Prem Agarwal, Alvin Dang, Justin Chen, Julie Jeanpierre
 - Team updates:
 	- Team corrected "Milestone 1: Requirements" issues raised from Canvas submission comments
-		- Alvin: Edited Functional Use Case 1 & 2
+		- Alvin: Edited Functional Use Case 1 & 2. Fixed typo on Use Case 5.
 		- Prem: 
-	- Julie: Added 2 non-functional requirements
-	- 
+		- Julie: Added 2 non-functional requirements. Edited Use Case 5 & 6. Changed Use Case 7 & 8.
+		- Justin: Edited Functional Requirements 11 & 12. Changed Use Case 8. Fixed formatting on Use Case 6.
