@@ -149,24 +149,27 @@ Please make sure that all addresses are properly formed.
  
 
 
-6. System sends a confirmation email when user attempts to create an account
-- **Pre-condition:** User has already inputted all information needed to create an account
+6. User account has two factor authentication when logging in
+- **Pre-condition:** user must have another device to receive a secure code 
 
-- **Trigger:** User clicks button "send confirmation email"
+- **Trigger:** User clicks 'login' button
 
 - **Primary Sequence:**
   
-  1. System sends an email to User
-  2. User opens email and clicks on confirmation link
-  3. System creates user account on the server
+  1. User enters username/password 
+  2. Popup screen appears when user presses login
+  3. System prompts user to enter secure code sent to attached phone #
+  4. User enters code
+  5. System allows user to access account
+
 
 - **Primary Postconditions:** System's server contains user's information on logging into the website
 
 - **Alternate Sequence:** 
   
-  1. User fails to open confirmation link in email after 24 hrs
-  2. System does not create the account on the server
-  3. System deletes given information user has given to create the account
+  1.User does not have access to phone attached to the account
+  2.User can’t login
+  3.System prompts user to go through password recovery process
 
 7. User can sign in to the email client with their registered account
 - **Pre-condition:** User has already registered, User has entered their email/password in the designated fields,   
