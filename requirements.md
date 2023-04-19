@@ -126,47 +126,54 @@ Please make sure that all addresses are properly formed.
   3. System prompts user to input in new time
 
 
-5. edit user profile (pfp,username,password)
+5. edit user profile (profile picture,username,password)
 - **Pre-condition:** User must have an existing account
 
 - **Trigger:** User presses 'edit pofile' button
 
 - **Primary Sequence:**
   
- 1. User chooses to edit their pfp
- 2. System prompts user to allow access to photos to upload new pfp
+ 1. User chooses to edit their profile picture
+ 2. System prompts user to allow access to photos to upload new profile picture
  3. User gives system permission and chooses a picture from camera roll
  4. System prompts user to confirm their choice
- 5. System changes pfp 
+ 5. System changes profile picture
+ 6. User chooses to edit username/password
+ 7. system prompts user to enter new changes
+ 8. system prompts user to confirm their choices
+ 9. system saves changes
 
 
-- **Primary Postconditions:** System server saves new pfp as is viewable by other users
+- **Primary Postconditions:** System server saves new profile picture and it is viewable by other users
 
 - **Alternate Sequence:** 
   
   1. User doesn't allow access to photos
-  2. System can't change pfp
+  2. System can't change profile picture
  
 
 
-6. System sends a confirmation email when user attempts to create an account
-- **Pre-condition:** User has already inputted all information needed to create an account
+6. User account has two factor authentication when logging in
+- **Pre-condition:** user must have another device to receive a secure code 
 
-- **Trigger:** User clicks button "send confirmation email"
+- **Trigger:** User clicks 'login' button
 
 - **Primary Sequence:**
   
-  1. System sends an email to User
-  2. User opens email and clicks on confirmation link
-  3. System creates user account on the server
+  1. User enters username/password 
+  2. Popup screen appears when user presses login
+  3. System prompts user to enter secure code sent to attached phone number
+  4. User enters code
+  5. System allows user to access account
 
-- **Primary Postconditions:** System's server contains user's information on logging into the website
+
+- **Primary Postconditions:** System allows user to access their account 
 
 - **Alternate Sequence:** 
   
-  1. User fails to open confirmation link in email after 24 hrs
-  2. System does not create the account on the server
-  3. System deletes given information user has given to create the account
+  1.User does not have access to phone attached to the account
+  2.User can’t login
+  3.System sends user back to login page
 
 7. User can sign in to the email client with their registered account
 - **Pre-condition:** User has already registered, User has entered their email/password in the designated fields,   
