@@ -37,9 +37,8 @@ Justin 10-12
   2. User types in recipient users
   3. System prompts user to draft message
   4. User clicks "send" button
-  5. System sends message to recipient users
 
-- **Primary Postconditions:** Recipient(s) must have received message from user
+- **Primary Postconditions:** Recipient(s) receive a message from the sender
 
 - **Alternate Sequence:** 
   
@@ -62,7 +61,6 @@ Justin 10-12
   5. System prompts user to draft the email body
   6. User types in email body
   7. User clicks "send" button
-  8. System sends email to recipient(s)
 
 - **Primary Postconditions:** Recipient(s) receive an email from the sender
 
