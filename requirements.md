@@ -129,7 +129,7 @@ Please make sure that all addresses are properly formed.
 5. edit user profile (pfp,username,password)
 - **Pre-condition:** User must have an existing account
 
-- **Trigger:** User presses 'edit pofile' button
+- **Trigger:** User presses 'edit profile' button
 
 - **Primary Sequence:**
   
