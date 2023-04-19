@@ -4,6 +4,12 @@ Prem: 4-6
 Julie: 7-9
 Justin 10-12
 
+## Use Cases Assigned Tasks:
+Alvin: 1-2
+Prem: 3-4
+Julie: 5-6
+Justin: 7-8
+
 ## Functional Requirements
 
 1. User can send a message to one or more users when pressing the send button
