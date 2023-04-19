@@ -1,4 +1,4 @@
-# Project Name Undecided
+# Snail Mail
 - Justin Chen (@jchen147)
 - Prem (@prem9) - Team Lead
 - Julie (@juliejeanpierre)
