@@ -43,9 +43,8 @@ Justin: 7-8
   2. User types in recipient users
   3. System prompts user to draft message
   4. User clicks "send" button
-  5. System sends message to recipient users
 
-- **Primary Postconditions:** Recipient(s) must have received message from user
+- **Primary Postconditions:** Recipient(s) receive a message from the sender
 
 - **Alternate Sequence:** 
   
@@ -68,7 +67,6 @@ Justin: 7-8
   5. System prompts user to draft the email body
   6. User types in email body
   7. User clicks "send" button
-  8. System sends email to recipient(s)
 
 - **Primary Postconditions:** Recipient(s) receive an email from the sender
 
@@ -128,7 +126,7 @@ Please make sure that all addresses are properly formed.
   3. System prompts user to input in new time
 
 
-5. edit user profile
+5. edit user profile (pfp,username,password)
 - **Pre-condition:** User must have an existing account
 
 - **Trigger:** User presses 'edit pofile' button
