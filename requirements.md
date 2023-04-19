@@ -86,12 +86,12 @@ Please make sure that all addresses are properly formed.
 - **Primary Sequence:**
   
   1. Systen prompts user to create a title for the list
-  2. User writes a title to for the list
+  2. User writes a title for the list
   3. System prompts user to create a task
   4. User finishes writing task out
   5. System prompts user if they want to attatch a deadline to the task
   6. User attatches a date and time to the task
-  7. System prompts a checking box to mark the task to be completed or incompleted
+  7. System prompts a check box to mark the task to be completed or incompleted
   8. User marks task as completed or incompleted
   9. System prompts user if they want to create another task
   10. User chooses to create another task or finishes list
@@ -101,7 +101,7 @@ Please make sure that all addresses are properly formed.
 - **Alternate Sequence:** 
   
   1. Systen prompts user to create a title for the list
-  2. User writes a title to for the list
+  2. User writes a title for the list
   3. System prompts user to create a task
   4. User finishes writing task out
   5. System prompts user if they want to attatch a deadline to the task
