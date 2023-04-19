@@ -22,7 +22,7 @@ Justin 10-12
 ## Non-functional Requirements
 
 1. Emails/chats should be sent/received in no more than 20 secs
-2. Username(not email address) for all users
+2. Platform design is in english only
 
 ## Use Cases
 
