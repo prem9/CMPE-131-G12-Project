@@ -78,53 +78,57 @@ Please make sure that all addresses are properly formed.
   3. User inputs valid recipient email address and continue composing email
 
 
-3. User can create an objective which can be marked as completed or uncompleted
+3. User can create multiple lists of objectives which can be marked complete or incomplete with a deadline attatched to them
 - **Pre-condition:** User is logged in.
 
-- **Trigger:** User clicks on "create a task" button. 
+- **Trigger:** User clicks on "create a list" button. 
 
 - **Primary Sequence:**
   
-  1. System prompts user to write a task or sentence of the task
-  2. User finishes writing task out
-  3. System prompts user to mark the task complete or incomplete
-  4. User marks the task complete or incomplete
+  1. Systen prompts user to create a title for the list
+  2. User writes a title to for the list
+  3. System prompts user to create a task
+  4. User finishes writing task out
+  5. System prompts user if they want to attatch a deadline to the task
+  6. User attatches a date and time to the task
+  7. System prompts a checking box to mark the task to be completed or incompleted
+  8. User marks task as completed or incompleted
+  9. System prompts user if they want to create another task
+  10. User chooses to create another task or finishes list
 
-- **Primary Postconditions:** User is able to see the task they created marked incomplete or complete
+- **Primary Postconditions:** User is able to see the list and able to mark tasks on it complete or incomplete
 
 - **Alternate Sequence:** 
   
-  1. User inputs invalid date
-  2. System prompts date has already past the present
-  3. System prompts user to enter a valid date
+  1. Systen prompts user to create a title for the list
+  2. User writes a title to for the list
+  3. System prompts user to create a task
+  4. User finishes writing task out
+  5. System prompts user if they want to attatch a deadline to the task
+  6. User attatches an invalid date or time to the task
+  7. System prompts user "invalid deadline" and asks user to input a different date or time
 
+4. User can reply to a sender's email or send the email to someone else
+- **Pre-condition:** User is logged in. User has received an email from another user.
 
-4. User can set a deadline for the created task
-- **Pre-condition:** User is logged in. User has created a task
-
-- **Trigger:** User clicks the set a deadline symbol button on the task
+- **Trigger:** User clicks the reply or forward button on the email button
 
 - **Primary Sequence:**
   
-  1. System prompts user to set a date
-  2. User selects a date for the deadline
-  3. System prompts user to input specified time on the specified date
-  4. User inputs time for the deadline
+  1. System prompts user to enter other email addresses or usernames to send existing email to
+  2. User inputs email addresses or usernames to send existing email to
+  3. System prompts user to enter a message to send with existing email
+  4. User inputs message to send with existing email
+  5. User clicks send button
+  6. System sends message with existing email to recipient accounts
 
-- **Primary Postconditions:** Date and time is displayed on the specified task to the user
+- **Primary Postconditions:** Recipients can see the existing email sent to them with the additional message on it
 
 - **Alternate Sequence:** 
   
-  1. User inputs invalid date which has passed
-  2. System gives pop-up message prompting the user that the date provided has already passed
-  3. System prompts user to put in new date
-
-- **Alternate Sequence:**
-  
-  1. User inputs invalid time outside of time constraints
-  2. System gives pop-up message prompting user that inputted time is invalid
-  3. System prompts user to input in new time
-
+  1. System prompts user to enter other email addresses or usernames to send existing email to
+  2. User inputs invalid email addresses or usernames to send existing email to
+  3. System prompts user email or username is invalid and to input another username or email
 
 5. edit user profile (profile picture,username,password)
 - **Pre-condition:** User must have an existing account
