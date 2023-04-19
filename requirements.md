@@ -199,11 +199,9 @@ User is currently on the sign in portal
   2. User fills in the required fields such as email address and password
   3. User is offered the option to check a box to opt for two-factor authentication
   4. If user opts for two-factor authentication, system will request the user to enter a PIN number 
-  5. System will display a CAPTCHA to the user to verify their identity
-  6. User accepts the terms and conditions
-  7. User clicks on the "register" button
-  8. System validates the information and creates the account for the user and stores the information of the user in 
-     its database
+  5. User accepts the terms and conditions
+  6. User clicks on the "register" button
+  7. System validates the information and creates the account for the user and stores the information of the user in its database
 
 - **Primary Postconditions:** System displays a message to the user indicating that they have successfully registered
 
@@ -212,4 +210,4 @@ User is currently on the sign in portal
   1. System will display an error message if the email already exists in its database or missing fields on the   
      registration page
   2. System will prompt the user to correct the information provided
-  3. System will request the user to attempt the CAPTCHA again if the user has failed to verify
+  3. System will request the user to attempt the two-factor authentication again if the user has failed to verify
