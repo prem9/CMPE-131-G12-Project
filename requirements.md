@@ -211,7 +211,7 @@ User is currently on the sign in portal
   1. User is navigated to the website's registration page
   2. User fills in the required fields such as email address and password
   3. User is offered the option to check a box to opt for two-factor authentication
-  4. If user opts for two-factor authentication, system will request the user to enter a PIN number 
+  4. If user opts for PIN authentication, system will request the user to enter a PIN number 
   5. User accepts the terms and conditions
   6. User clicks on the "register" button
   7. System validates the information and creates the account for the user and stores the information of the user in its database
@@ -223,4 +223,4 @@ User is currently on the sign in portal
   1. System will display an error message if the email already exists in its database or missing fields on the   
      registration page
   2. System will prompt the user to correct the information provided
-  3. System will request the user to attempt the two-factor authentication again if the user has failed to verify
+  3. System will request the user to attempt the PIN authentication again if the user has failed to verify
