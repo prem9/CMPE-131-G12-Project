@@ -25,5 +25,11 @@ Meeting Time Length: 30-45 minutes
 ### 2023-4-21
 - People who attended: Prem Agarwal, Alvin Dang, Justin Chen
 - Team updates:
-	- Prem & Justin changed functional requirement 8 (Use Case 6) from 2FA to ___
-	- 
+	- Prem & Justin changed functional requirement 8 (Use Case 6) from 2FA to sign out
+
+### 2023-4-24
+- People who attended: Prem Agarwal, Alvin Dang, Justin Chen, Julie Jeanpierre
+- Team updates:
+	- Pair programming main page for just register and sign in functions(incomplete): Prem Agarwal(Documenter), Justin Chen(Writer), Julie Jeanpierre
+	- Alvin Dang is figuring out a conflict on his side since his pull requests are working well.
+
