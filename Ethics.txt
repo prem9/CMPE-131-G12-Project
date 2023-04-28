@@ -1,8 +1,8 @@
 Global: Make communication easier especially with longer messages. Allows anyone with a laptop to send detailed emails or converse with anyone with an 
 account 
 
-Economic:
+Economic: increased productivity as it was easier to reach people from other places. Will help create new eccommerce models
 
-Environmental: 
+Environmental: Will decrease amount of letters or physical mail as long messages are easily sent
 
-Societal contexts:
+Societal contexts: helps people connect and stay disconnected at the same time.
