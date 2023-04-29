@@ -1,4 +1,4 @@
-# Sloth Mail
+# Slug Mail
 
 The aim of Sloth Mail is to provide users with a free and easy to use form of communicating.  
 
