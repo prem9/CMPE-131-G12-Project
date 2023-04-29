@@ -14,13 +14,13 @@ Justin: 7-8
 
 1. User can send a message to one or more users when pressing the send button
 2. User can compose an email when clicking on the compose button
-3. User can delete an email by checking the box of the email that the user wants to delete
+3. User can delete an email
 4. User can create multiple lists of objectives which can be marked complete or incomplete with a deadline attatched to them.
 5. User can reply to a sender's email or send the email to someone else
 6. User can share lists to other people
 7. edit user profile
 8. User can sign out of their account
-9.  Ability to send images/Urls
+9. Ability to send images/Urls
 10. User can view messages or emails
 11. Users should be able to sort their emails based on different criteria such as date, sender, and subject
 12. System should allow users to format their emails using various font styles, bold text, sizes, and colors when composing an email
@@ -28,7 +28,7 @@ Justin: 7-8
 ## Non-functional Requirements
 
 1. Emails/chats should be sent/received in no more than 20 secs
-2. Platform design is in english only
+2. Website can only run on Chrome
 
 ## Use Cases
 
@@ -85,16 +85,15 @@ Please make sure that all addresses are properly formed.
 
 - **Primary Sequence:**
   
-  1. Systen prompts user to create a title for the list
-  2. User writes a title for the list
-  3. System prompts user to create a task
+  1. User is allowed to change the title of the list if they choose 
+  2. User writes a title for the list if they decide to change the title
+  3. User types in a text box to create a task
   4. User finishes writing task out
-  5. System prompts user if they want to attatch a deadline to the task
-  6. User attatches a date and time to the task
-  7. System prompts a check box to mark the task to be completed or incompleted
-  8. User marks task as completed or incompleted
-  9. System prompts user if they want to create another task
-  10. User chooses to create another task or finishes list
+  5. System adds a check box next to the task to mark the task to be completed or incompleted
+  6. System prompts user if they want to attach a deadline to the task 
+  7. User attaches a date and time to the task
+  8. System adds the task to the list
+  9. User can now choose add another task to the list
 
 - **Primary Postconditions:** User is able to see the list and able to mark tasks on it complete or incomplete
 
@@ -108,27 +107,24 @@ Please make sure that all addresses are properly formed.
   6. User attatches an invalid date or time to the task
   7. System prompts user "invalid deadline" and asks user to input a different date or time
 
-4. User can reply to a sender's email or send the email to someone else
-- **Pre-condition:** User is logged in. User has received an email from another user.
+4. User can delete an email
+- **Pre-condition:** User is logged in. User has received an email from another user and is viewing it
 
-- **Trigger:** User clicks the reply or forward button on the email button
+- **Trigger:** User clicks on the "delete" button
 
 - **Primary Sequence:**
   
-  1. System prompts user to enter other email addresses or usernames to send existing email to
-  2. User inputs email addresses or usernames to send existing email to
-  3. System prompts user to enter a message to send with existing email
-  4. User inputs message to send with existing email
-  5. User clicks send button
-  6. System sends message with existing email to recipient accounts
+  1. System prompts user to confirm whether they want to delete the email or not
+  2. User clicks "yes" on the prompt
+  3. System removes email from User's view
 
-- **Primary Postconditions:** Recipients can see the existing email sent to them with the additional message on it
+- **Primary Postconditions:**  User can not see the email sent to them or they sent
 
 - **Alternate Sequence:** 
   
-  1. System prompts user to enter other email addresses or usernames to send existing email to
-  2. User inputs invalid email addresses or usernames to send existing email to
-  3. System prompts user email or username is invalid and to input another username or email
+  1. System prompts user to confirm whether they want to delete the email or not
+  2. User clicks "no" on the prompt
+  3. System closes the prompt and goes back to the email.
 
 5. edit user profile (profile picture,username,password)
 - **Pre-condition:** User must have an existing account
@@ -205,8 +201,8 @@ User is currently on the sign in portal
 
 - **Primary Sequence:**
   
-  1. User is navigated to the website's registration page
-  2. User fills in the required fields such as email address and password
+  1. System prompts User to fill in required fields such as email address and password
+  2. User fills in the required fields
   3. User is offered the option to check a box to opt for two-factor authentication
   4. If user opts for PIN authentication, system will request the user to enter a PIN number 
   5. User accepts the terms and conditions
@@ -217,7 +213,7 @@ User is currently on the sign in portal
 
 - **Alternate Sequence:** 
 
-  1. System will display an error message if the email already exists in its database or missing fields on the   
+  1. System will display an error message if the email already exists in its database or missing fields on the
      registration page
   2. System will prompt the user to correct the information provided
   3. System will request the user to attempt the PIN authentication again if the user has failed to verify

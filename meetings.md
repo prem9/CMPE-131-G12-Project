@@ -33,3 +33,8 @@ Meeting Time Length: 30-45 minutes
 	- Pair programming main page for just register and sign in functions(incomplete): Prem Agarwal(Documenter), Justin Chen(Writer), Julie Jeanpierre
 	- Alvin Dang is figuring out a conflict on his side since his pull requests are working well.
 
+### 2023-4-28
+- People who attended: Prem Agarwal, Alvin Dang, Justin Chen, Julie Jeanpierre
+- Team updates:
+	- Prem Agarwal fixed issues with milestone 1 and resubmitted with group
+	- Group created 2 branches for different versions of the website to figure out which to choose
