@@ -1,8 +1,10 @@
 Global: Make communication easier especially with longer messages. Allows anyone with a laptop to send detailed emails or converse with anyone with an 
 account 
 
+This is a free app, meaning it costs nothing to create an account to send messages. Typically it costs 50-70 cents to buy stamps and a dollar to buy an individual envelope. When sending mail to multiple recipients this cost can quickly add up. With this app users' mail can’t get physically lost and if they don't receive a reply there isn’t any financial loss.
 
 
-The environmental impact of Sloth Mail will decrease amount of paper used to send physical mail. Sending mail tradiontally has indirect and direct consequences. Indirect emissions are caused by the transportation and packaging that the mail comes in. Physical mail is also printed on paper. Deforestation contributes to carbon emssions which are the leading cause of global warming. Emails still contribute to carbon emissions however it is significantly less than standard mail.
+The environmental impact of Sloth Mail will decrease the amount of paper used to send physical mail. Sending mail traditionally has indirect and direct consequences. Indirect emissions are caused by the transportation that the mail comes in. Physical mail is printed on paper. Deforestation contributes to carbon emissions which is the leading cause of global warming. Emails still contribute to carbon emissions but are significantly less than standard mail.
+
 
 Societal contexts: helps people connect and stay disconnected at the same time.
