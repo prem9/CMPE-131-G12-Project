@@ -1,9 +1,9 @@
 
-## Meetings
+# Meetings
 Team plans to have a meeting on Fridays during or after class time
 Meeting Time Length: 30-45 minutes
 
-### 2023-4-07
+## 2023-4-07
 - People who attended: Prem Agarwal, Alvin Dang, Justin Chen
 - Team updates:
 	- Alvin Dang: Completed 2 use cases with primary sequences of 3-10 steps, including one non-functional 
@@ -12,7 +12,7 @@ Meeting Time Length: 30-45 minutes
 		    - requirement
 - Summary: Milestone 1 progression nearly done
 
-### 2023-4-18
+## 2023-4-18
 - People who attended: Prem Agarwal, Alvin Dang, Justin Chen, Julie Jeanpierre
 - Team updates:
 	- Team corrected "Milestone 1: Requirements" issues raised from Canvas submission comments
@@ -22,7 +22,7 @@ Meeting Time Length: 30-45 minutes
 		- Justin: Edited Functional Requirements 11 & 12. Changed Use Case 8. Fixed formatting on Use Case 6.
 	- Created name for project.
 
-### 2023-4-21
+## 2023-4-21
 - People who attended: Prem Agarwal, Alvin Dang, Justin Chen
 - Team updates:
 	- Prem & Justin changed functional requirement 8 (Use Case 6) from 2FA to sign out
