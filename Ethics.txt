@@ -3,6 +3,6 @@ account
 
 
 
-nvironmental: The enviromental impact of Sloth Mail will decrease amount of paper used to send physical mail. Sending mail tradiontally has indirect and direct consequences. Indirect emissions are caused by the transportation and packaging that the mail comes in. Physical mail is also printed on paper. Deforestation contributes to carbon emssions which are the leading cause of global warming. Emails still contribute to carbon emissions however it is significantly less than standard mail.
+The environmental impact of Sloth Mail will decrease amount of paper used to send physical mail. Sending mail tradiontally has indirect and direct consequences. Indirect emissions are caused by the transportation and packaging that the mail comes in. Physical mail is also printed on paper. Deforestation contributes to carbon emssions which are the leading cause of global warming. Emails still contribute to carbon emissions however it is significantly less than standard mail.
 
 Societal contexts: helps people connect and stay disconnected at the same time.
