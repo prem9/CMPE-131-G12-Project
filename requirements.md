@@ -119,7 +119,7 @@ Please make sure that all addresses are properly formed.
   2. User clicks "yes" on the prompt
   3. System removes email from User's view
 
-- **Primary Postconditions:**  User can not see the email sent to them. Other users which still have the email can still see it.
+- **Primary Postconditions:**  User can not see the email sent to them or they sent
 
 - **Alternate Sequence:** 
   
