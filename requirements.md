@@ -85,16 +85,15 @@ Please make sure that all addresses are properly formed.
 
 - **Primary Sequence:**
   
-  1. Systen prompts user to create a title for the list
-  2. User writes a title for the list
-  3. System prompts user to create a task
+  1. User is allowed to change the title of the list if they choose 
+  2. User writes a title for the list if they decide to change the title
+  3. User types in a text box to create a task
   4. User finishes writing task out
-  5. System prompts user if they want to attatch a deadline to the task
-  6. User attatches a date and time to the task
-  7. System prompts a check box to mark the task to be completed or incompleted
-  8. User marks task as completed or incompleted
-  9. System prompts user if they want to create another task
-  10. User chooses to create another task or finishes list
+  5. System adds a check box next to the task to mark the task to be completed or incompleted
+  6. System prompts user if they want to attach a deadline to the task 
+  7. User attaches a date and time to the task
+  8. System adds the task to the list
+  9. User can now choose add another task to the list
 
 - **Primary Postconditions:** User is able to see the list and able to mark tasks on it complete or incomplete
 
