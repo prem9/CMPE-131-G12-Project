@@ -1,7 +1,0 @@
-Global:
-
-Economic: alvin
-
-Environmental: julie jeanpierre
-
-Societal contexts:
