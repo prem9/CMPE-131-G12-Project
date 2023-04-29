@@ -1,0 +1,26 @@
+{% extends "base.html" %} {% block title %}Create List{% endblock %} 
+
+{% block content %}
+    <h1 contenteditable="true" align="center">Objectives</h1>
+    <ul class="list-group list-group-flush" id="notes">
+     {% for note in user.notes %}
+    <li class="list-group-item">
+     <input type="checkbox" name="note-checkbox" value="{{ note.id }}">
+     <input type="date" name="deadline-{{ note.id }}" id="deadline-{{ note.id }}" class="form-control">
+     {{ note.data }}
+        <button type="button" class="close" onClick="deleteNote({{ note.id }})">
+         <span aria-hidden="true">&times;</span>
+     </button>
+     </li>
+    {% endfor %}
+    </ul>
+
+    <form method="POST">
+      <textarea name="note" id="note" class="form-control"></textarea>
+      <br />
+      <div align="center">
+        <button type="submit" class="btn btn-primary">Add Objective</button>
+      </div>
+    </form>
+    
+{% endblock %}
