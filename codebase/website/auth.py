@@ -66,6 +66,14 @@ def sign_up():
         password2 = request.form.get('password2')
 
         user = User.query.filter_by(email=email).first()
+
+        if not email:
+            flash('Email cannot be empty.', category='error')
+        elif not first_name:
+            flash('First name cannot be empty.', category='error')
+        elif not password1 or not password2:
+            flash('Password cannot be empty.', category='error')
+
         if user:
             flash('Email already exists.', category='error')
         elif len(email) < 4:
