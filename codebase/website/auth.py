@@ -35,6 +35,27 @@ def logout():
     logout_user()
     return redirect(url_for('auth.login'))
 
+@auth.route('/delete-user', methods=['GET', 'POST'])
+@login_required
+def delete_user():
+    if request.method == 'POST':
+        email = request.form.get('email')
+        password = request.form.get('password')
+
+        user = User.query.filter_by(email=email).first()
+        if user:
+            if check_password_hash(user.password, password):
+                flash('User deleted successfully!', category='success')
+                db.session.delete(user)
+                db.session.commit()
+                return redirect(url_for('auth.login'))
+            else:
+                flash('Incorrect password, try again.', category='error')
+        else:
+            flash('Email does not exist.', category='error')
+
+    return render_template("delete_user.html", user=current_user)
+
 
 @auth.route('/sign-up', methods=['GET', 'POST'])
 def sign_up():
