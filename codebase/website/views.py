@@ -3,12 +3,28 @@ from flask_login import login_required, current_user
 from .models import Note
 from . import db
 import json
+from faker import Faker
+
+
 
 views = Blueprint('views', __name__)
 
+def generate_emails(num_emails):
+    emails = []
+    for _ in range(num_emails):
+        email = {
+            'from': fake.email(),
+            'subject': fake.sentence(),
+            'body': fake.paragraph()
+        }
+        emails.append(email)
+    return emails
+
 @views.route("/", methods=['GET', 'POST'])
 def home():
-    return render_template("home.html", user=current_user)
+    num_emails = 10
+    emails = generate_emails(num_emails)
+    return render_template("home.html", emails=emails, user=current_user)
 
 @views.route('/list', methods=['GET', 'POST'])
 @login_required
@@ -48,3 +64,6 @@ def delete_note():
             db.session.commit()
 
     return jsonify({})
+
+fake = Faker()
+
