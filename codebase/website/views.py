@@ -9,6 +9,7 @@ from faker import Faker
 
 views = Blueprint('views', __name__)
 
+fake = Faker()
 def generate_emails(num_emails):
     emails = []
     for _ in range(num_emails):
@@ -64,6 +65,3 @@ def delete_note():
             db.session.commit()
 
     return jsonify({})
-
-fake = Faker()
-
