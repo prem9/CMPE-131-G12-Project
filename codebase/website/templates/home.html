@@ -1,6 +1,34 @@
-{% extends "base.html" %} {% block title %}Home{% endblock %} 
+{% extends "base.html" %} {% block title %}Email{% endblock %} 
 
 {% block content %}
-    <h1 align="center">Home Page</h1>
+    
+    <h1 align="center">Email Page</h1>
+
+    <body>
+        <div class="row">
+            <div class="col-sm-2">
+                <div id="inbox">
+                    <ul>
+                        <li><a href="/">Inbox</a></li>
+                        <li><a href="#">Sent</a></li>
+                        <li><a href="#">Trash</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-10">
+                <ul>
+                    {% for email in emails %}
+                        <li>
+                            <a href="/emails/{{ loop.index }}">{{ email.subject }}</a>
+                            <p>From: {{ email.from }}</p>
+                            <p>{{email.body}}</p>
+                        </li>
+            {% endfor %}
+            </ul>
+        </div>
+    </div>
+            
+       
+    </body>
     
 {% endblock %}
