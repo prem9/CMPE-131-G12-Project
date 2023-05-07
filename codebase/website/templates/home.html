@@ -1,14 +1,16 @@
-{% extends "base.html" %} {% block title %}Email{% endblock %} 
+{% extends "base.html" %} {% block title %}Sloth Mail{% endblock %} 
 
 {% block content %}
     
-    <h1 align="center">Email Page</h1>
+    <h1 align="center">Inbox</h1>
 
     <body>
         <div class="row">
             <div class="col-sm-2">
                 <div id="inbox">
                     <ul>
+                        <button type="submit" class="btn btn-primary">Compose</button> <!-- Need to add routes for buttons-->
+                        <button type="submit" class="btn btn-primary">Refresh</button>
                         <li><a href="/">Inbox</a></li>
                         <li><a href="#">Sent</a></li>
                         <li><a href="#">Trash</a></li>
