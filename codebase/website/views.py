@@ -3,7 +3,7 @@ from flask_login import login_required, current_user
 from .models import Note
 from . import db
 import json
-
+from faker import Faker
 
 
 views = Blueprint('views', __name__)
@@ -19,13 +19,6 @@ def generate_emails(num_emails):
         }
         emails.append(email)
     return emails
-
-@views.route("/", methods=['GET', 'POST'])
-def home():
-    num_emails = 10
-    emails = generate_emails(num_emails)
-    return render_template("home.html", emails=emails, user=current_user)
-
 
 @views.route('/list', methods=['GET', 'POST'])
 @login_required
