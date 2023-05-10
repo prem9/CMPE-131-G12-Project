@@ -3,10 +3,17 @@ from flask_login import login_required, current_user
 from .models import Message, User
 from . import db
 import json
+import sqlalchemy.sql 
 
 
 #messages_BP = Blueprint('messages', __name__)
 chats_BP = Blueprint('chats', __name__)
+
+@chats_BP.route('/chathome', methods=['GET','POST'])
+@login_required
+def chat_home():
+    pass
+    return render_template('chathome.html', user=current_user)
 
 # Define the messages route
 @chats_BP.route('/chats', methods=['GET', 'POST'])
@@ -17,6 +24,13 @@ def chats():
     user = User.query.filter_by(id=user_id).first()
 
     if request.method == 'POST':
+        #db.select('user')
+        #sql_str = text("select * from Message")
+        #db.session.execute(sql_str).fetchall()a
+        query = db.session.query(Message).filter_by(id=user_id)
+        for cols in db.session.connection().execute(query):
+            print(cols)
+
         receiver_username = request.form['receiver']
         receiver = User.query.filter_by(username=receiver_username).first()
         if not receiver:

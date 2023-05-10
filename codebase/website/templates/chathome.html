@@ -1,25 +1,17 @@
-{% extends "base.html" %} {% block title %}Sloth Mail{% endblock %} 
+{% extends "base.html" %} {% block title %}Chats{% endblock %} 
 
 {% block content %}
     
-    <h1 align="center">Inbox</h1>
+    <h1 align="center"> Chat Page</h1>
 
     <body>
         <div class="row">
             <div class="col-sm-2">
                 <div id="inbox">
                     <ul>
-                        <button type="submit" class="btn btn-primary">Compose</button>
-                        <br>
-                        <br> <!-- Need to add routes for buttons-->
-                        
-                        <form action = "/refresh" method="POST">
-                            <button type="submit" class="btn btn-primary">Refresh</button>
-                        </form>
-
-                        <li><a href="/">Inbox</a></li>
-                        <li><a href="#">Sent</a></li>
-                        <li><a href="#">Trash</a></li>
+                        <li><a href="/chathome">In</a></li>
+			<li><a href="/chats">New</a></li>
+                        <li><a href="#">Delete</a></li>
                     </ul>
                 </div>
             </div>
