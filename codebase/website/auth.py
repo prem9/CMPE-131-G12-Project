@@ -1,9 +1,13 @@
 from flask import Blueprint, render_template, request, flash, redirect, url_for
 from .models import User
 from werkzeug.security import generate_password_hash, check_password_hash
-from . import db   ##means from __init__.py import db
+from . import db  ##means from __init__.py import db
 from flask_login import login_user, login_required, logout_user, current_user
 from faker import Faker
+from website import app
+from werkzeug.utils import secure_filename
+import os
+import uuid
 
 auth = Blueprint('auth', __name__)
 
@@ -108,11 +112,50 @@ def sign_up():
             db.session.commit()
             login_user(new_user, remember=True)
             flash('Account created!', category='success')
-            return redirect(url_for('views.home'))
+            return redirect(url_for('auth.inbox'))
 
     return render_template("sign_up.html", user=current_user)
-
+           
 @auth.route('/profile', methods=['GET', 'POST'])
 @login_required
 def profile():
+    user = User.query.filter_by(id=current_user.id).first()
     return render_template("profile.html", user=current_user)
+
+@auth.route('/profile/update', methods=['POST'])
+@login_required
+def update_profile():
+    name = request.form['name']
+    bio = request.form['bio']
+    user = User.query.filter_by(id=current_user.id).first()
+    user.name = name
+    user.bio = bio
+    db.session.commit()
+    return redirect('/profile')
+
+@auth.route('/upload_profile_picture', methods=['POST'])
+def upload_profile_picture():
+    file = request.files['file']
+    if not file:
+        return redirect(url_for('auth.profile'))
+
+    filename = str(uuid.uuid4()) + '.' + file.filename.split('.')[-1]  # Generate a unique filename
+    file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+
+    user = User.query.filter_by(id=current_user.id).first()
+    old_profile_picture = user.profile_picture
+
+    if old_profile_picture != 'default.jpg':
+        os.remove(os.path.join(app.config['UPLOAD_FOLDER'], old_profile_picture))
+
+    user.profile_picture = filename
+    db.session.commit()
+
+    return redirect(url_for('auth.profile'))
+
+@auth.route('/refresh', methods=['POST'])
+def refresh():
+    return redirect('/')
+
+
+

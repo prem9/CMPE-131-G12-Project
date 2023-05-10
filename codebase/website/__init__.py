@@ -2,7 +2,7 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from os import path
 from flask_login import LoginManager
-
+import os
 
 db = SQLAlchemy()
 DB_NAME = "appdata.db"
@@ -12,6 +12,7 @@ app.config['SECRET_KEY'] = 'key'
 app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}'
 db.init_app(app)
 
+app.config['UPLOAD_FOLDER'] = 'codebase/website/static'
 
 from .views import views
 from .auth import auth
