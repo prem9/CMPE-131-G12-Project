@@ -1,8 +1,8 @@
-{% extends "base.html" %} {% block title %}Email{% endblock %} 
+{% extends "base.html" %} {% block title %}Sloth Mail{% endblock %} 
 
 {% block content %}
     
-    <h1 align="center">Email Page</h1>
+    <h1 align="center">Inbox</h1>
 
     <body>
         <div class="row">
@@ -12,6 +12,14 @@
                         <form action = "/compose" method="POST">
                             <button type="submit" class="btn btn-primary">Compose</button>
                         </form>                
+                        <button type="submit" class="btn btn-primary">Compose</button>
+                        <br>
+                        <br> <!-- Need to add routes for buttons-->
+                        
+                        <form action = "/refresh" method="POST">
+                            <button type="submit" class="btn btn-primary">Refresh</button>
+                        </form>
+
                         <li><a href="/">Inbox</a></li>
                         <li><a href="#">Sent</a></li>
                         <li><a href="#">Trash</a></li>

@@ -14,7 +14,13 @@ class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(150), unique=True)
     password = db.Column(db.String(150))
+    name = db.Column(db.String(150))
+    bio = db.Column(db.String(1000))
     first_name = db.Column(db.String(150))
+
+    profile_picture = db.Column(db.String(150), default='default.jpg')
+    notes = db.relationship('Note')
+
     notes = db.relationship('Note')
 
 class Message(db.Model):
@@ -25,6 +31,8 @@ class Message(db.Model):
 
     def __repr__(self):
         return f'<Message {self.id}>'
+
+
     
 class Email(db.Model):
     id = db.Column(db.Integer, primary_key=True)

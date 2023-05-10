@@ -15,12 +15,12 @@ Justin: 7-8
 1. User can send a message to one or more users when pressing the send button
 2. User can compose an email when clicking on the compose button
 3. User can delete an email
-4. User can create multiple lists of objectives which can be marked complete or incomplete with a deadline attatched to them.
+4. User can create multiple lists of objectives which can be marked complete or incomplete with a deadline attached to them.
 5. User can reply to a sender's email or send the email to someone else
-6. User can share lists to other people
-7. edit user profile
+6. User can add attachment files when composing an email
+7. Edit user profile
 8. User can sign out of their account
-9. Ability to send images/Urls
+9. User can recover/reset their password
 10. User can view messages or emails
 11. Users should be able to sort their emails based on different criteria such as date, sender, and subject
 12. System should allow users to format their emails using various font styles, bold text, sizes, and colors when composing an email
