@@ -6,6 +6,7 @@ from flask_login import login_user, login_required, logout_user, current_user
 from faker import Faker
 from website import app
 from werkzeug.utils import secure_filename
+from .forms import ResetPasswordForm
 import os
 import uuid
 
@@ -157,5 +158,16 @@ def upload_profile_picture():
 def refresh():
     return redirect('/')
 
-
-
+@auth.route('/reset-password', methods=['GET', 'POST'])
+def reset_password():
+    form = ResetPasswordForm()
+    if form.validate_on_submit():
+        user = User.query.filter_by(email=form.email.data).first()
+        if user:
+            user.password = generate_password_hash(form.password.data)
+            db.session.commit()
+            flash('Your password has been reset successfully!', 'success')
+            return redirect(url_for('auth.login'))
+        else:
+            flash('Email does not exist', 'error')
+    return render_template('reset_password.html', form=form, user=current_user)
