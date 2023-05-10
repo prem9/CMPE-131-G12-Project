@@ -32,7 +32,6 @@ class Email(db.Model):
     receiver_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     subject = db.Column(db.String(200), nullable=False)
     content = db.Column(db.String(200), nullable=False)
-    date = db.Column(db.DateTime(timezone=True), default=func.now())
 
     def __repr__(self):
         return f'<Email {self.id}>'
