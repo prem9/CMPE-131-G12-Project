@@ -56,6 +56,23 @@ def delete_user():
 
     return render_template("delete_user.html", user=current_user)
 
+@auth.route('/compose', methods=['GET', 'POST'])
+@login_required
+def compose():
+    if request.method == 'POST':
+        email = request.form.get('email')
+        subject = request.form.get('subject')
+        body = request.form.get('body')
+
+        user = User.query.filter_by(email=email).first()
+        if user:
+            flash('Email sent successfully!', category='success')
+            return redirect(url_for('views.home'))
+        else:
+            flash('Email does not exist.', category='error')
+
+    return render_template("compose.html", user=current_user)
+
 
 @auth.route('/sign-up', methods=['GET', 'POST'])
 def sign_up():
