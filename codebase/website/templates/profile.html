@@ -4,13 +4,13 @@
     
     <h1 align="center">{{user.first_name}}'s Profile Page</h1>
     <body>
+        <img src="{{ url_for('static', filename='' + user.profile_picture) }}" alt="Profile Picture" class="img-thumbnail">
 
         <form method="POST" action="{{ url_for('auth.upload_profile_picture') }}" enctype="multipart/form-data">
             <input type="file" name="file">
             <input type="submit" value="Upload">
         </form>
-        <img src="{{ url_for('static', filename='' + user.profile_picture) }}" alt="Profile Picture" class="img-thumbnail">
-
+        
         <br>
         <br>
         <form method="POST" action="{{url_for('auth.update_profile')}}">

@@ -2,6 +2,8 @@
 
 {% block content %}
 <form method="POST">
+    <br />
+    <br />
     <h3 align="center">Welcome to Sloth Mail!</h3>
     <div class="form-group">
         <label for="email">Email Address</label>
@@ -24,6 +26,11 @@
         />
     </div>
     <br />
-    <button type="submit" class="btn btn-primary">Login</button>
+   <button type="submit" class="btn btn-primary">Login</button>
+</form>
+
+<br />
+<form action = '/reset-password', method="POST">
+    <button type="submit" class="btn btn-primary">Reset Password</button>
 </form>
 {% endblock %}
