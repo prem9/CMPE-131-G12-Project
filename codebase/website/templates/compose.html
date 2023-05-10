@@ -1,0 +1,43 @@
+{% extends "base.html" %} {% block title %}Compose{% endblock %} 
+
+{% block content %}
+    <h1 align="center">Compose Email</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="recipients">To</label>
+            <input
+                type="text"
+                class="form-control"
+                id="recipients"
+                name="recipients"
+                placeholder="Enter recipient(s)"
+            />
+        </div>
+
+        <div class="form-group">
+            <label for="subject">Subject</label>
+            <input
+                type="text"
+                class="form-control"
+                id="subject"
+                name="subject"
+                placeholder="Enter subject"
+            />
+        </div>
+
+        <div class="form-group">
+            <label for="body">Body</label>
+            <textarea
+                class="form-control"
+                id="body"
+                name="body"
+                placeholder="Enter body"
+            ></textarea>
+        </div>
+
+        <br />
+        <button type="submit" class="btn btn-primary">Send</button>
+    </form>
+{% endblock %}
+```
