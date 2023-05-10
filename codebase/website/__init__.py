@@ -16,11 +16,12 @@ app.config['UPLOAD_FOLDER'] = 'codebase/website/static'
 
 from .views import views
 from .auth import auth
+from .chats import chats, chats_BP
 
 
 app.register_blueprint(views, url_prefix='/')
 app.register_blueprint(auth, url_prefix='/')
-
+app.register_blueprint(chats_BP, url_prefix='/')
 
 from .models import User, Note
    

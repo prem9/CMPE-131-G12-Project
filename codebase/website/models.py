@@ -17,5 +17,18 @@ class User(db.Model, UserMixin):
     name = db.Column(db.String(150))
     bio = db.Column(db.String(1000))
     first_name = db.Column(db.String(150))
+
     profile_picture = db.Column(db.String(150), default='default.jpg')
     notes = db.relationship('Note')
+
+    notes = db.relationship('Note')
+
+class Message(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    sender_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    receiver_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    content = db.Column(db.String(200), nullable=False)
+
+    def __repr__(self):
+        return f'<Message {self.id}>'
+

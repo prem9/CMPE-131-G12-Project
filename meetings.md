@@ -38,3 +38,10 @@ Meeting Time Length: 30-45 minutes
 - Team updates:
 	- Prem Agarwal fixed issues with milestone 1 and resubmitted with group
 	- Group created 2 branches for different versions of the website to figure out which to choose
+### 2023-5-5
+- People who attended: Prem Agarwal, ALvin Dang, Justin Chen
+- Team updates:
+	- Everyone in meeting checked requirements to figure out how much we done and what needed to change
+	- Prem found a bug with Delete user not requiring the user to fill out the confirm password to delete user
+	- Justin worked on refining email's html and functionality
+	- Alvin worked on the delete user bug
