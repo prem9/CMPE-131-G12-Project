@@ -82,16 +82,17 @@ def delete_user():
 @login_required
 def compose():
     if request.method == 'POST':
-        email = request.form.get('email')
+        sender = current_user.id
+        recipient = request.form.get('recipient email')
         subject = request.form.get('subject')
         body = request.form.get('body')
 
-        user = User.query.filter_by(email=email).first()
-        if user:
+        recipient = User.query.filter_by(email=recipient).first()
+        '''if receiver_id: 
             flash('Email sent successfully!', category='success')
-            return redirect(url_for('views.home'))
+            return redirect(url_for('auth.inbox'))
         else:
-            flash('Email does not exist.', category='error')
+            flash('Email does not exist.', category='error') '''   
 
     return render_template("compose.html", user=current_user)
 
