@@ -1,23 +1,36 @@
 {% extends "base.html" %} {% block title %}Create List{% endblock %} 
 
 {% block content %}
+
+    <!--Heading for the objectives list with contenteditable attribute to allow heading changes-->
     <h1 contenteditable="true" align="center">Objectives</h1>  
+
+    <!--Unordered list to display the list of notes-->
     <ul class="list-group list-group-flush" id="notes">
-     {% for note in user.notes %}  <!--For Loop to generate List based on the logged in User-->
+
+    <!--For Loop to generate List based on the logged in User-->
+     {% for note in user.notes %}  
+
+     <!--Checkbox and Deadline Implementation-->
     <li class="list-group-item">
-     <input type="checkbox" name="note-checkbox" value="{{ note.id }}">       <!--Checkbox and Deadline Implementation-->
+     <input type="checkbox" name="note-checkbox" value="{{ note.id }}">       
      <input type="date" name="deadline-{{ note.id }}" id="deadline-{{ note.id }}" class="form-control">
      {{ note.data }}
-        <button type="button" class="close" onClick="deleteNote({{ note.id }})">  <!--Deleting Notes Button-->
+
+     <!--Deleting Notes Button-->
+        <button type="button" class="close" onClick="deleteNote({{ note.id }})">  
          <span aria-hidden="true">&times;</span>
      </button>
      </li>
     {% endfor %}
     </ul>
 
-    <form method="POST">    <!--Implements Button to Add Tasks to the List-->
+    <form method="POST">    
+      <!-- Form to add new tasks to the list-->
       <textarea name="note" id="note" class="form-control"></textarea>
       <br />
+      
+      <!--Button to submit the form and add the objective-->
       <div align="center">
         <button type="submit" class="btn btn-primary">Add Objective</button>
       </div>

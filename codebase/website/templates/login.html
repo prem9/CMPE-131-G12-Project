@@ -5,8 +5,12 @@
     <br />
     <br />
     <h3 align="center">Welcome to Sloth Mail!</h3>
+
+    <!--Form to create user login-->
     <div class="form-group">
         <label for="email">Email Address</label>
+
+        <!--Input field for email address-->
         <input
             type="email"
             class="form-control"
@@ -15,8 +19,10 @@
             placeholder="Enter email"
         />
     </div>
+
     <div class="form-group">
         <label for="password">Password</label>
+        <!--Input field for password-->
         <input
             type="password"
             class="form-control"
@@ -26,9 +32,12 @@
         />
     </div>
     <br />
+
+    <!--Button to submit the login form after input fields are filled in-->
    <button type="submit" class="btn btn-primary">Login</button>
 </form>
 
+    <!--Button to redirect the user to the reset-password route to allow the user to change their password-->
 <br />
 <form action = '/reset-password', method="POST">
     <button type="submit" class="btn btn-primary">Reset Password</button>
