@@ -1,7 +1,10 @@
 from . import db
 from flask_login import UserMixin
 from sqlalchemy.sql import func
-
+from flask_wtf import FlaskForm
+from wtforms import StringField, TextAreaField, SubmitField
+from wtforms.validators import DataRequired, Email
+from datetime import datetime
 
 class Note(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -21,7 +24,7 @@ class User(db.Model, UserMixin):
     profile_picture = db.Column(db.String(150), default='default.jpg')
     notes = db.relationship('Note')
 
-    notes = db.relationship('Note')
+    emails = db.relationship('Email', backref='recipient', lazy=True)
 
 class Message(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -34,9 +37,16 @@ class Message(db.Model):
 
 class Email(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    recipient = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    recipient_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     subject = db.Column(db.String(200), nullable=False)
     body = db.Column(db.String(10000), nullable=False)
+    date_sent = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
 
     def __repr__(self):
         return f'<Email {self.id}>'
+    
+class ComposeForm(FlaskForm):
+    recipient = StringField('Recipient', validators=[DataRequired(), Email()])
+    subject = StringField('Subject', validators=[DataRequired()])
+    body = TextAreaField('Body', validators=[DataRequired()])
+    submit = SubmitField('Send')

@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, flash, redirect, url_for
-from .models import User
+from .models import User, ComposeForm, Email
 from werkzeug.security import generate_password_hash, check_password_hash
 from . import db  ##means from __init__.py import db
 from flask_login import login_user, login_required, logout_user, current_user
@@ -81,20 +81,35 @@ def delete_user():
 @auth.route('/compose', methods=['GET', 'POST'])
 @login_required
 def compose():
-    if request.method == 'POST':
+    '''if request.method == 'POST':
         sender = current_user.id
         recipient = request.form.get('recipient email')
         subject = request.form.get('subject')
         body = request.form.get('body')
 
         recipient = User.query.filter_by(email=recipient).first()
-        '''if receiver_id: 
-            flash('Email sent successfully!', category='success')
-            return redirect(url_for('auth.inbox'))
-        else:
-            flash('Email does not exist.', category='error') '''   
+    return render_template("compose.html", user=current_user)'''
 
-    return render_template("compose.html", user=current_user)
+    form = ComposeForm()
+
+    if form.validate_on_submit():
+        recipient_email = form.recipient.data
+        subject = form.subject.data
+        body = form.body.data
+
+        recipient = User.query.filter_by(email=recipient_email).first()
+        if not recipient:
+            flash(f"No user found with email {recipient_email}", "error")
+            return redirect(url_for('auth.compose'))
+
+        email = Email(recipient=recipient.id, subject=subject, body=body)
+        db.session.add(email)
+        db.session.commit()
+
+        flash(f"Email sent to {recipient_email}", "success")
+        return redirect(url_for('main.index'))
+
+    return render_template('compose.html', form=form)
 
 
 @auth.route('/sign-up', methods=['GET', 'POST'])
