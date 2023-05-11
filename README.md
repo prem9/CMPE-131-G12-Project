@@ -709,7 +709,11 @@ alabaster                     0.7.12
   
    1. Clone the repository
     
-          git clone https://github.com/prem9/CMPE-131-G12-Project/edit/main/README.md
+          git clone https://github.com/prem9/CMPE-131-G12-Project/edit/main/
+          
+   2. Install the required modules 
+          
+          pip install <module-name>
      
      
 
