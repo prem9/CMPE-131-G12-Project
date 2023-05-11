@@ -3,8 +3,7 @@
 The aim of Sloth Mail is to provide users with a free and easy to use form of communicating.  
 
 # About This Project:
-
-- sdsda
+    
 
 
 # Project Status:
@@ -706,13 +705,12 @@ alabaster                     0.7.12
 
 # Installation
 
-  Below are the steps in installing and setting up the application to run on your local computer:
+   Below are the steps in installing and setting up the application to run on your local computer:
   
-  1. Clone the repository
-  
-     <div style="background-color: #808080; padding: 10px;">
+   1. Clone the repository
+    
           git clone https://github.com/prem9/CMPE-131-G12-Project/edit/main/README.md
-     </div>
+     
      
 
 
