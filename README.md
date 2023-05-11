@@ -703,7 +703,7 @@ alabaster                     0.7.12
   zstandard                     0.19.0
 </details>
 
-# Installation
+# Installation and Setup
 
    Below are the steps in installing and setting up the application to run on your local computer:
   
@@ -714,6 +714,12 @@ alabaster                     0.7.12
    2. Install the required modules 
           
           pip install <module-name>
+          
+   3. Navigate to the directory 
+     
+          codebase/website/run.py
+  
+   4. Run run.py
      
      
 
