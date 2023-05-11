@@ -38,88 +38,170 @@ This project is not yet completed. Most implementations have been completed howe
  Package                       Version
 ----------------------------- ---------------
 alabaster                     0.7.12
-anaconda-client               1.11.1
-anaconda-navigator            2.4.0
-anaconda-project              0.11.1
-anyio                         3.5.0
-appdirs                       1.4.4
-argon2-cffi                   21.3.0
-argon2-cffi-bindings          21.2.0
-arrow                         1.2.3
-astroid                       2.14.2
-astropy                       5.1
-asttokens                     2.0.5
-atomicwrites                  1.4.0
-attrs                         22.1.0
-Automat                       20.2.0
-autopep8                      1.6.0
-Babel                         2.11.0
-backcall                      0.2.0
-backports.functools-lru-cache 1.6.4
-backports.tempfile            1.0
-backports.weakref             1.0.post1
-bcrypt                        3.2.0
-beautifulsoup4                4.11.1
-binaryornot                   0.4.4
-black                         22.6.0
-bleach                        4.1.0
-bokeh                         2.4.3
-Bottleneck                    1.3.5
-brotlipy                      0.7.0
-certifi                       2022.12.7
-cffi                          1.15.1
-chardet                       4.0.0
-charset-normalizer            2.0.4
-click                         8.0.4
-cloudpickle                   2.0.0
-clyent                        1.2.2
-colorama                      0.4.6
-colorcet                      3.0.1
-comm                          0.1.2
-conda                         23.1.0
-conda-build                   3.23.3
-conda-content-trust           0.1.3
-conda-pack                    0.6.0
-conda-package-handling        2.0.2
-conda_package_streaming       0.7.0
-conda-repo-cli                1.0.27
-conda-token                   0.4.0
-conda-verify                  3.4.2
-constantly                    15.1.0
-contourpy                     1.0.5
-cookiecutter                  1.7.3
-cryptography                  39.0.1
-cssselect                     1.1.0
-cycler                        0.11.0
-cytoolz                       0.12.0
-daal4py                       2023.0.2
-dask                          2022.7.0
-datashader                    0.14.4
-datashape                     0.5.4
-debugpy                       1.5.1
-decorator                     5.1.1
-defusedxml                    0.7.1
-diff-match-patch              20200713
-dill                          0.3.6
-distributed                   2022.7.0
-dnspython                     2.3.0
-docstring-to-markdown         0.11
-docutils                      0.18.1
-email-validator               2.0.0.post2
-entrypoints                   0.4
-et-xmlfile                    1.1.0
-executing                     0.8.3
-Faker                         18.6.2
-fastjsonschema                2.16.2
-filelock                      3.9.0
-flake8                        6.0.0
-Flask                         2.2.2
-Flask-Login                   0.6.2
-Flask-SQLAlchemy              3.0.3
-Flask-WTF                     1.1.1
-flit_core                     3.6.0
-fonttools                     4.25.0
-fsspec                        2022.11.0
+
+  anaconda-client               1.11.1
+
+  anaconda-navigator            2.4.0
+
+  anaconda-project              0.11.1
+
+  anyio                         3.5.0
+
+  appdirs                       1.4.4
+
+  argon2-cffi                   21.3.0
+
+  argon2-cffi-bindings          21.2.0
+
+  arrow                         1.2.3
+
+  astroid                       2.14.2
+
+  astropy                       5.1
+
+  asttokens                     2.0.5
+
+  atomicwrites                  1.4.0
+
+  attrs                         22.1.0
+
+  Automat                       20.2.0
+
+  autopep8                      1.6.0
+
+  Babel                         2.11.0
+
+  backcall                      0.2.0
+
+  backports.functools-lru-cache 1.6.4
+
+  backports.tempfile            1.0
+
+  backports.weakref             1.0.post1
+
+  bcrypt                        3.2.0
+
+  beautifulsoup4                4.11.1
+
+  binaryornot                   0.4.4
+
+  black                         22.6.0
+
+  bleach                        4.1.0
+
+  bokeh                         2.4.3
+
+  Bottleneck                    1.3.5
+
+  brotlipy                      0.7.0
+
+  certifi                       2022.12.7
+
+  cffi                          1.15.1
+
+  chardet                       4.0.0
+
+  charset-normalizer            2.0.4
+
+  click                         8.0.4
+
+  cloudpickle                   2.0.0
+
+  clyent                        1.2.2
+
+  colorama                      0.4.6
+
+  colorcet                      3.0.1
+
+  comm                          0.1.2
+
+  conda                         23.1.0
+
+  conda-build                   3.23.3
+
+  conda-content-trust           0.1.3
+
+  conda-pack                    0.6.0
+
+  conda-package-handling        2.0.2
+
+  conda_package_streaming       0.7.0
+
+  conda-repo-cli                1.0.27
+
+  conda-token                   0.4.0
+
+  conda-verify                  3.4.2
+
+  constantly                    15.1.0
+
+  contourpy                     1.0.5
+
+  cookiecutter                  1.7.3
+
+  cryptography                  39.0.1
+
+  cssselect                     1.1.0
+
+  cycler                        0.11.0
+
+  cytoolz                       0.12.0
+
+  daal4py                       2023.0.2
+
+  dask                          2022.7.0
+
+  datashader                    0.14.4
+
+  datashape                     0.5.4
+
+  debugpy                       1.5.1
+
+  decorator                     5.1.1
+
+  defusedxml                    0.7.1
+
+  diff-match-patch              20200713
+
+  dill                          0.3.6
+
+  distributed                   2022.7.0
+
+  dnspython                     2.3.0
+
+  docstring-to-markdown         0.11
+
+  docutils                      0.18.1
+
+  email-validator               2.0.0.post2
+
+  entrypoints                   0.4
+
+  et-xmlfile                    1.1.0
+
+  executing                     0.8.3
+
+  Faker                         18.6.2
+
+  fastjsonschema                2.16.2
+
+  filelock                      3.9.0
+
+  flake8                        6.0.0
+
+  Flask                         2.2.2
+
+  Flask-Login                   0.6.2
+
+  Flask-SQLAlchemy              3.0.3
+
+  Flask-WTF                     1.1.1
+
+  flit_core                     3.6.0
+
+  fonttools                     4.25.0
+
+  fsspec                        2022.11.0
 future                        0.18.3
 gensim                        4.3.0
 glob2                         0.7
