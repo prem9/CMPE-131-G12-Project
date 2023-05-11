@@ -12,8 +12,11 @@ This project is not yet completed. Most implementations have been completed howe
 
 # Authors:
  Justin Chen (@jchen147)
+ 
  Prem (@prem9) - Team Lead
+ 
  Julie (@juliejeanpierre)
+ 
  Alvin (@adang101)
  
  # Built With
