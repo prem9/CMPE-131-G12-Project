@@ -36,7 +36,9 @@ This project is not yet completed. Most implementations have been completed howe
  <details>
   <summary>Click to expand</summary>
  Package                       Version
------------------------------ ---------------
+
+  ----------------------------- 
+  ---------------
 alabaster                     0.7.12
 
   anaconda-client               1.11.1
