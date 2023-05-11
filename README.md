@@ -709,7 +709,8 @@ alabaster                     0.7.12
   Below are the steps in installing and setting up the application to run on your local computer:
   
   1. Clone the repository
-     <div style="background-color: #F7F7F7; padding: 10px;">
+  
+     <div style="background-color: #808080; padding: 10px;">
           git clone https://github.com/prem9/CMPE-131-G12-Project/edit/main/README.md
      </div>
      
