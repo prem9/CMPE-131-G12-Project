@@ -20,8 +20,6 @@ class User(db.Model, UserMixin): # Database used to store data relating to users
     profile_picture = db.Column(db.String(150), default='default.jpg')
     notes = db.relationship('Note')
 
-    notes = db.relationship('Note')
-
 class Message(db.Model): # Database used to store data relating to the chat feature
     id = db.Column(db.Integer, primary_key=True)
     sender_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
