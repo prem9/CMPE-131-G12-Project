@@ -8,7 +8,7 @@
      <input type="checkbox" name="note-checkbox" value="{{ note.id }}">       <!--Checkbox and Deadline Implementation-->
      <input type="date" name="deadline-{{ note.id }}" id="deadline-{{ note.id }}" class="form-control">
      {{ note.data }}
-        <button type="button" class="close" onClick="deleteNote({{ note.id }})">  <!--Deleting Notes Button-->
+        <button type="button" class="close" onClick="deleteNote({ note,id })">  <!--Deleting Notes Button-->
          <span aria-hidden="true">&times;</span>
      </button>
      </li>
