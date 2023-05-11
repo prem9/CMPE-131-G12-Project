@@ -4,10 +4,7 @@ The aim of Sloth Mail is to provide users with a free and easy to use form of co
 
 # About This Project:
 
-<details>
-  <summary>Click to expand</summary>
 
-</details>
 
 
 # Project Status:
@@ -30,9 +27,10 @@ This project is not yet completed. Most implementations have been completed howe
     - Flask
     - SQLAlchemy
     
- # Required Libraries
+ # Required Modules
  
- The necessary libraries required to run this application are listed below:
+ The necessary modules required to run this application are listed below:
+ 
  <details>
   <summary>Click to expand</summary>
  Package                       Version
@@ -705,6 +703,21 @@ alabaster                     0.7.12
 
   zstandard                     0.19.0
 </details>
+
+# Installation
+
+  Below are the steps in installing and setting up the application to run on your local computer:
+  
+  1. Clone the repository
+     
+     git clone https://github.com/prem9/CMPE-131-G12-Project/edit/main/README.md
+
+
+
+
+
+
+
 
 # How to use:
 In order to use this app, run main.py. If issues arise, run the following pytho files prior to running main.py: init.py auth.py models.py views.py.
