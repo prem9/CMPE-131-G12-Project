@@ -2,14 +2,32 @@
 
 The aim of Sloth Mail is to provide users with a free and easy to use form of communicating.  
 
+# About This Project:
+
+
+
+
 # Project Status:
-This project is not yet completed. Basic implementations have been completed however there is some customization that still needs to be  done. 
+This project is not yet completed. Most implementations have been completed however there is some customization that still needs to be  done. 
 
 # Authors:
  Justin Chen (@jchen147)
  Prem (@prem9) - Team Lead
  Julie (@juliejeanpierre)
  Alvin (@adang101)
+ 
+ # Built With
+    - Bootstrap
+    - JQuery
+    - Javascript
+    - Python 
+    - Flask
+    - SQLAlchemy
+    
+ # Required Libraries
+ 
+ The necessary libraries required to run this application are listed below:
+ 
  
 
 # How to use:
