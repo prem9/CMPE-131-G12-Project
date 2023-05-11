@@ -34,7 +34,6 @@ class Message(db.Model):
 
 class Email(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    sender = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     recipient = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     subject = db.Column(db.String(200), nullable=False)
     body = db.Column(db.String(10000), nullable=False)
