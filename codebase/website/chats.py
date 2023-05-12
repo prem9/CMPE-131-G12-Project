@@ -9,6 +9,26 @@ import sqlalchemy.sql
 #messages_BP = Blueprint('messages', __name__)
 chats_BP = Blueprint('chats', __name__)
 
+@chats_BP.route('/chat-view', methods=['GET','POST'])
+@login_required
+def view_message():
+    print('Get - related data')
+
+    if request.method == 'POST':
+        input_value = request.form['email-in']
+        print(input_value)
+        if not input_value:
+            return jsonify('Error:'," no email given'")
+        user = User.query.filter_by(email=input_value).first()
+        if not user:
+            return jsonify({'error': 'Invalid email'})
+        message = Message.query.filter_by(sender_id=current_user.id, receiver_id=user.id).first()
+        if not message:
+            return jsonify({'error': 'No chat history with this user yet'})
+        #return jsonify({'message':message.content})
+        return render_template('chat-view.html',user=current_user, message=message.content)
+    return render_template('chat-view.html', user=current_user)
+
 @chats_BP.route('/delete_chat', methods=['GET','POST'])
 @login_required
 def delete_message():
@@ -19,9 +39,9 @@ def delete_message():
         chat1 = Message.query.filter_by(sender_id=user_id, receiver_id=user2.id).first()
         chat2 = Message.query.filter_by(receiver_id=user_id, sender_id=user2.id).first()
         if not user2:
-            return return_template("delete_chat.html", user=current_user, error="invalid email")
+            return render_template("delete_chat.html", user=current_user, error="invalid email")
         if not chat1:
-            return return_template("delete_chat.html", user=current_user, error="No chat for this email")
+            return render_template("delete_chat.html", user=current_user, error="No chat for this email")
         db.session.delete(chat1)
         db.session.delete(chat2)
         db.session.commit()
@@ -47,7 +67,7 @@ def chat_home():
                 html += "<td>{}</td>".format(value)
             '''
             #html += "</tr><br>"
-            
+
     elif request.method == "POST":
         msgs = Message.query.filter_by(sender_id=user_id).all()
 
@@ -77,13 +97,19 @@ def chats():
         receiver = User.query.filter_by(email=receiver_username).first()
         if not receiver:
             return render_template('chat.html', user=current_user, error='Invalid username')
-
+        msg1 = Message.query.filter_by(sender_id=user_id, receiver_id=receiver.id).first()
         content = request.form['message']
-        message1 = Message(sender_id=user_id, receiver_id=receiver.id, content=content)
-        message2 = Message(sender_id=receiver.id, receiver_id=user_id, content=content)
-        db.session.add(message1)
-        db.session.add(message2)
-        db.session.commit()
+        if not msg1:
+            message1 = Message(sender_id=user_id, receiver_id=receiver.id, content=content)
+            message2 = Message(sender_id=receiver.id, receiver_id=user_id, content=content)
+            db.session.add(message1)
+            db.session.add(message2)
+            db.session.commit()
+        else:
+            msg2 = Message.query.filter_by(sender_id=receiver.id,receiver_id=user_id).first()
+            msg1.content += '\n'+ current_user.email + ": "+ content
+            msg2.content += '\n'+ current_user.email + ": "+ content 
+            db.session.commit()
     else:
         return render_template('chat.html', user=current_user)
 
@@ -92,4 +118,17 @@ def chats():
     return render_template('chat.html',user=current_user)
     #return render_template('messages.html', user=user, messages_sent=messages_sent, messages_received=messages_received)
 
-
+@chats_BP.route('/get-related-data',methods=['GET','POST'])
+@login_required
+def get_related_data():
+    print('Get - related data')
+    input_value = request.form.get('email-in')
+    user = User.query.filter_by(email=input_value).first()
+    if not user:
+        return jsonify({'error': 'Invalid email'}) 
+    message = Message.query.filter_by(sender_id = current_user.id, receiver_id = user.id).first()
+    if not message:
+        return jsonify({'error': 'No chat history with this user yet'})
+    return jsonify({'message':message.content})
+    #related_data = "Hellow, World"
+    #return jsonify({'related_data':related_data})

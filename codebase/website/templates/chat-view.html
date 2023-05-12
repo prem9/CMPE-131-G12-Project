@@ -1,0 +1,34 @@
+{% extends "base.html" %} {% block title %}Messages{% endblock %} 
+
+{% block content %}
+<form method="POST"> 
+    <h3 align="center">Chat</h3>
+    <div class="form-group">
+        <label for="email-in">Email Address</label>
+        <input
+            type="text"
+            class="form-control"
+            id="email-in"
+            name="email-in"
+            placeholder="Enter email"
+        />
+        <label for="message">Existing Message</label>
+        <textarea readonly class="form-control" id="message-in" name="message" placeholder="Enter message">
+            {{message}}
+        </textarea>
+    </div>
+
+    
+    <br />
+    <button type="Reply" class="btn btn-primary">View</button>
+
+</form>
+
+<style>
+    .message-container {
+        overflow: auto;
+        max-height: 100px; /* Set the maximum height of the container */
+    }
+</style>
+
+{% endblock %}
