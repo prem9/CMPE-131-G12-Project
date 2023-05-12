@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
+  <div id="content">
+    <div id="content">
   <head>
-
+    
     <!-- Sets character encoding to UTF-8-->
 
     <meta charset="utf-8" />
@@ -62,7 +64,8 @@
         </div>
       </div>
     </nav>
-
+   
+    <a class="font-button plus">A+</a> <a class="font-button minus">A-</a>
     {% with messages = get_flashed_messages(with_categories=true) %} {% if
     messages %} {% for category, message in messages %} {% if category ==
     'error' %}
@@ -84,6 +87,9 @@
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
+  </div>
+
+
     {% endif %} 
     {% endfor %} 
     {% endif %} 
@@ -113,8 +119,9 @@
     ></script>
 
     <!--Function for deleting a note from the list -->
-    
+  </div>
 {% block javascript %}
+
     <script type="text/javascript">  
       function deleteNote(noteId) {
   fetch("/delete-note", {
@@ -125,6 +132,53 @@
   });
   }
 </script>
+
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $(".font-button").bind("click", function () {
+            var size = parseInt($('#content').css("font-size"));
+            if ($(this).hasClass("plus")) {
+                size = size + 2;
+            } else {
+                size = size - 2;
+                if (size <= 10) {
+                    size = 10;
+                }
+            }
+            $('#content').css("font-size", size);
+        });
+    });
+</script>
+
+<style>
+  .font-button{
+    border: 3px solid black;
+    display: inline-block;
+    font-size: 16px;
+    width: 30px;
+    height:30px;
+    margin-right: 300px;
+  
+  }
+</style>
+
+<select id="input" class="input" onchange="changingFontStyle (this);">
+  <option value="Times New Roman" elected="selected">
+     Times New Roman
+  </option>
+  <option value="Arial">Arial</option>
+  <option value="fantasy">Fantasy</option>
+  <option value="cursive">cursive</option>
+</select>
+<script>
+  var changingFontStyle = function (fontstyle) {
+     document.getElementById("content").style.fontFamily = fontstyle.value;
+  }
+</script>
+
 {% endblock %}
+
   </body>
 </html>
