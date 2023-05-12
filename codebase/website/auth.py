@@ -117,7 +117,7 @@ def compose():
             # Create a new email and save it in the database    
             # sender=sender recipient=recipient.id
             new_email = Email(
-                sender=current_user, 
+                user_id=current_user.id, 
                 recipient=recipient, 
                 subject=subject, 
                 body=body)
