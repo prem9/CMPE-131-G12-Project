@@ -1,4 +1,4 @@
-from flask import  Blueprint, Flask, render_template, request, redirect, url_for, session, jsonify
+from flask import  Blueprint, Flask, render_template, request, redirect, url_for, session, jsonify, flash
 from flask_login import login_required, current_user
 from .models import Message, User
 from . import db
@@ -6,7 +6,6 @@ import json
 import sqlalchemy.sql
 
 
-#messages_BP = Blueprint('messages', __name__)
 chats_BP = Blueprint('chats', __name__)
 
 @chats_BP.route('/chat-view', methods=['GET','POST'])
@@ -16,16 +15,17 @@ def view_message():
 
     if request.method == 'POST':
         input_value = request.form['email-in']
-        print(input_value)
         if not input_value:
-            return jsonify('Error:'," no email given'")
+            flash('No email provided',category='error')
+            return render_template('chat-view.html',user=current_user)
         user = User.query.filter_by(email=input_value).first()
         if not user:
-            return jsonify({'error': 'Invalid email'})
+            flash("Invalid email..",category='error')
+            return render_template('chat-view.html',user=current_user)
         message = Message.query.filter_by(sender_id=current_user.id, receiver_id=user.id).first()
         if not message:
-            return jsonify({'error': 'No chat history with this user yet'})
-        #return jsonify({'message':message.content})
+            flash('No chat history with this user',category='error')
+            return render_template('chat-view.html',user=current_user)
         return render_template('chat-view.html',user=current_user, message=message.content)
     return render_template('chat-view.html', user=current_user)
 
@@ -53,20 +53,13 @@ def delete_message():
 @login_required
 def chat_home():
     user_id = current_user.id
-    #html = "<table>"
     if request.method == "GET":
         msgs = Message.query.filter_by(sender_id=user_id).all()
         html = ""
         for row in msgs:
             print(row)
-            #html += "<tr>"
             user1 = User.query.filter_by(id=row.receiver_id).first()
             html += str(user1.email)+str("\n")
-            '''
-            for value in row:
-                html += "<td>{}</td>".format(value)
-            '''
-            #html += "</tr><br>"
 
     elif request.method == "POST":
         msgs = Message.query.filter_by(sender_id=user_id).all()
@@ -79,23 +72,19 @@ def chat_home():
                 html += "<td>{}</td>".format(value)
             html += "</tr>"
             '''
-    #html += "</table>"
     return render_template('chathome.html', user=current_user, table=html)
 
-# Define the messages route
 @chats_BP.route('/chat', methods=['GET', 'POST'])
 @login_required
 def chats():
 
-    user_id = current_user.id #session['user_id']
-    #user = User.query.filter_by(id=user_id).first()
+    user_id = current_user.id
 
     if request.method == 'POST':
-        #db.select('user')
-	#line 28 error on 29
         receiver_username = request.form['email']
         receiver = User.query.filter_by(email=receiver_username).first()
         if not receiver:
+            flash("Invalid email address",category='error')
             return render_template('chat.html', user=current_user, error='Invalid username')
         msg1 = Message.query.filter_by(sender_id=user_id, receiver_id=receiver.id).first()
         content = request.form['message']
@@ -117,7 +106,6 @@ def chats():
     messages_sent = Message.query.filter_by(sender_id=user_id).all()
     messages_received = Message.query.filter_by(receiver_id=user_id).all()
     return render_template('chat.html',user=current_user)
-    #return render_template('messages.html', user=user, messages_sent=messages_sent, messages_received=messages_received)
 
 @chats_BP.route('/get-related-data',methods=['GET','POST'])
 @login_required
@@ -131,5 +119,3 @@ def get_related_data():
     if not message:
         return jsonify({'error': 'No chat history with this user yet'})
     return jsonify({'message':message.content})
-    #related_data = "Hellow, World"
-    #return jsonify({'related_data':related_data})
