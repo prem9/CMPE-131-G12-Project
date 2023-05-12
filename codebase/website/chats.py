@@ -100,6 +100,7 @@ def chats():
         msg1 = Message.query.filter_by(sender_id=user_id, receiver_id=receiver.id).first()
         content = request.form['message']
         if not msg1:
+            content  =  current_user.first_name +": "+ content
             message1 = Message(sender_id=user_id, receiver_id=receiver.id, content=content)
             message2 = Message(sender_id=receiver.id, receiver_id=user_id, content=content)
             db.session.add(message1)
@@ -107,8 +108,8 @@ def chats():
             db.session.commit()
         else:
             msg2 = Message.query.filter_by(sender_id=receiver.id,receiver_id=user_id).first()
-            msg1.content += '\n'+ current_user.email + ": "+ content
-            msg2.content += '\n'+ current_user.email + ": "+ content 
+            msg1.content += '\n'+ current_user.first_name + ": "+ content
+            msg2.content += '\n'+ current_user.first_name + ": "+ content 
             db.session.commit()
     else:
         return render_template('chat.html', user=current_user)
