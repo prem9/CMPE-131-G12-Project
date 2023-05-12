@@ -2,25 +2,34 @@
 
 {% block content %}
     
+    <!--Heading for the user's profile page which includes the current user's username-->
     <h1 align="center">{{user.first_name}}'s Profile Page</h1>
     <body>
 
+        <!--Displays the user's profile picture with images stored in the static folder in the website directory-->
+        <img src="{{ url_for('static', filename='' + user.profile_picture) }}" alt="Profile Picture" class="img-thumbnail">
+
+        <!--Form for uploading/changing the user's current profile picture-->
         <form method="POST" action="{{ url_for('auth.upload_profile_picture') }}" enctype="multipart/form-data">
             <input type="file" name="file">
             <input type="submit" value="Upload">
         </form>
-        <img src="{{ url_for('static', filename='' + user.profile_picture) }}" alt="Profile Picture" class="img-thumbnail">
+        
+        <br>
+        <br>
 
-        <br>
-        <br>
+        <!--Form for updating the user's profile information (Name and Bio)-->
         <form method="POST" action="{{url_for('auth.update_profile')}}">
             <label for="name">Name:</label>
             <br>
+            <!--Input field for the user's real name-->
             <input type="text" name="name" value="{{ user.name }}" required>
             <br>
             <br>
+            <!--Input field for user's biography-->
             <label for="bio">Bio:</label>
             <textarea name="bio" class="form-control" required>{{ user.bio }}</textarea>
+            <!--Button to submit the form and save the changes made in the database-->
             <br>
             <button type="submit" class="btn btn-primary" value = "Save">Save</button>
         </form>

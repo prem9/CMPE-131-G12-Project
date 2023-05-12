@@ -8,18 +8,6 @@ from faker import Faker
 
 views = Blueprint('views', __name__)
 
-fake = Faker()
-def generate_emails(num_emails):
-    emails = []
-    for _ in range(num_emails):
-        email = {
-            'from': fake.email(),
-            'subject': fake.sentence(),
-            'body': fake.paragraph()
-        }
-        emails.append(email)
-    return emails
-
 @views.route('/list', methods=['GET', 'POST'])
 @login_required
 def list():

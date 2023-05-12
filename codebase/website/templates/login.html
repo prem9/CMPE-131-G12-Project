@@ -1,8 +1,23 @@
 {% extends "base.html" %} {% block title %}Welcome to Sloth Mail!{% endblock %} 
 
 {% block content %}
+<section class="vh-100 gradient-custom">
+    <div class="container py-5 h-75">
+        <div class="row d-flex justify-content-center align-items-center h-75">
+           <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+              <div class="card bg-dark text-white" style="border-radius: 1rem;">
+                 <div class="card-body p-5 text-center">
+                     <div class="mb-md-5 mt-md-4 pb-5">
+
 <form method="POST">
-    <h3 align="center">Welcome to Sloth Mail!</h3>
+    <br />
+    <br />
+    <div align="center">
+    <img src = "https://pngimg.com/d/sloth_PNG2.png" 
+    width=" 200"
+    heigh="200">
+        </div>
+    <h3 align="center">Welcome to Sloth Mail</h3>
     <div class="form-group">
         <label for="email">Email Address</label>
         <input
@@ -24,6 +39,35 @@
         />
     </div>
     <br />
-    <button type="submit" class="btn btn-primary">Login</button>
+   <button type="submit" class="btn btn-primary">Login</button>
 </form>
+
+
+<form action = '/reset-password', method="POST">
+    <button type="submit" class="button button1">Reset Password?</button>
+
+    <style> 
+        .button { 
+        height: 30px; 
+        width: 100px; 
+        color:black;
+        display: inline-block;
+        
+        margin-top: 10px;
+        
+        } 
+    
+        .button1 {font-size: 10px ; background-color: gainsboro; }
+        </style>
+    <br />
+    
+    </form>
+    
+    
+                        </div>
+                     </div>
+                 </div>
+            </div>
+        </div>
+    </section>
 {% endblock %}

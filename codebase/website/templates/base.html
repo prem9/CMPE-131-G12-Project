@@ -2,8 +2,15 @@
 <html>
   <head>
 
+    <!-- Sets character encoding to UTF-8-->
+
     <meta charset="utf-8" />
+
+    <!--Defines viewport settings for responsive design-->
+
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Includes Bootstrap CSS from a remote location -->
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -19,9 +26,12 @@
     <title>{% block title %}Home{% endblock %}</title>
   </head>
 
+    <!-- Navigation bar with a dark background -->
   <body>
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+      <!-- Button used for toggling the navigation collapse -->
       <button
         class="navbar-toggler"
         type="button"
@@ -32,16 +42,19 @@
       </button>
       <div class="collapse navbar-collapse" id="navbar">
         <div class="navbar-nav">
+
+          <!--Checks to make sure that the user is authenticated-->
           {% if user.is_authenticated %}
 
+          <!--If the user is authenticated, display these links after logging in-->
           <a class="nav-item nav-link" id="home" href="/">Inbox</a>
           <a class="nav-item nav-link" id="profile" href="/profile">Profile</a>
-
           <a class="nav-item nav-link" id="chat" href="/chathome">Chats</a>
-
           <a class="nav-item nav-link" id="createList" href="/list">Create List</a>
           <a class="nav-item nav-link" id="logout" href="/logout">Logout</a>
           <a class="nav-item nav-link" id="deleteUser" href="/delete-user">Delete Account</a>
+
+          <!--If the user is not authenticated, display only the login and sign-up links-->
           {% else %}
           <a class="nav-item nav-link" id="login" href="/login">Login</a>
           <a class="nav-item nav-link" id="signUp" href="/sign-up">Sign Up</a>
@@ -53,6 +66,9 @@
     {% with messages = get_flashed_messages(with_categories=true) %} {% if
     messages %} {% for category, message in messages %} {% if category ==
     'error' %}
+
+    <!--Display an error alert message with a close button-->
+
     <div class="alert alert-danger alter-dismissable fade show" role="alert">
       {{ message }}
       <button type="button" class="close" data-dismiss="alert">
@@ -60,6 +76,8 @@
       </button>
     </div>
     {% else %}
+
+    <!--Display a success alert message with a close button-->
     <div class="alert alert-success alter-dismissable fade show" role="alert">
       {{ message }}
       <button type="button" class="close" data-dismiss="alert">
@@ -72,24 +90,32 @@
     {% endwith %}
 
     <div class="container">{% block content %} {% endblock %}</div>
+
+    <!--Includes jQuery library from a remote location-->
     <script
       src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
       integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
       crossorigin="anonymous"
     ></script>
+
+    <!--Includes Popper.js library from a remote location-->
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
       integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
       crossorigin="anonymous"
     ></script>
+
+    <!--Includes Bootstrap JavaScript library from a remote location-->
     <script
       src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
       integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
       crossorigin="anonymous"
     ></script>
 
+    <!--Function for deleting a note from the list -->
+    
 {% block javascript %}
-    <script type="text/javascript">
+    <script type="text/javascript">  
       function deleteNote(noteId) {
   fetch("/delete-note", {
     method: "POST",
