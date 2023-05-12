@@ -24,6 +24,7 @@ Justin: 7-8
 10. User can view messages or emails
 11. Users should be able to sort their emails based on different criteria such as date, sender, and subject
 12. System should allow users to format their emails using various font styles, bold text, sizes, and colors when composing an email
+13. User can increase and decrease the size of text for the whole web page
 
 ## Non-functional Requirements
 
