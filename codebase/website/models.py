@@ -49,8 +49,8 @@ class Email(db.Model): # Database used to store data relating to the email featu
     timestamp = db.Column(db.DateTime(timezone=True), default=func.now())
 
     # Many-to-one relationship between Email & User
-    sender = db.relationship('User', foreign_keys=[user_id], backref='sent_emails')
-    recipient = db.relationship('User', foreign_keys=[recipient_id], backref='received_emails')
+    user_sent_email = db.relationship('User', foreign_keys=[user_id], backref='sent_email')
+    recipient = db.relationship('User', foreign_keys=[recipient_id], backref='received_email')
 
     # For debugging/Logging purposes to output the email object
     def __repr__(self):
