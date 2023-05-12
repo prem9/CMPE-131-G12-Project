@@ -1,43 +1,33 @@
-{% extends "base.html" %} {% block title %}Compose{% endblock %} 
+{% block title %}Compose Email{% endblock %}
 
 {% block content %}
-    <h1 align="center">Compose Email</h1>
-    <form method="POST">
-
-        <div class="form-group">
-            <label for="recipients">To</label>
-            <input
-                type="text"
-                class="form-control"
-                id="recipients"
-                name="recipients"
-                placeholder="Enter recipient(s)"
-            />
-        </div>
-
-        <div class="form-group">
-            <label for="subject">Subject</label>
-            <input
-                type="text"
-                class="form-control"
-                id="subject"
-                name="subject"
-                placeholder="Enter subject"
-            />
-        </div>
-
-        <div class="form-group">
-            <label for="body">Body</label>
-            <textarea
-                class="form-control"
-                id="body"
-                name="body"
-                placeholder="Enter body"
-            ></textarea>
-        </div>
-
-        <br />
-        <button type="submit" class="btn btn-primary">Send</button>
-    </form>
+<br />
+  <h1>Compose Email</h1>
+  <form method="POST" action="{{ url_for('auth.compose') }}">
+    {{ form.hidden_tag() }}
+    <div class="form-group">
+      {{ form.recipient.label }} 
+      {{ form.recipient(class="form-control") }}
+      {% for error in form.recipient.errors %}
+            <span class="text-danger">{{ error }}</span>
+      {% endfor %}
+    </div>
+    <div class="form-group">
+      {{ form.subject.label }} 
+      {{ form.subject(class="form-control") }}
+      {% for error in form.subject.errors %}
+            <span class="text-danger">{{ error }}</span>
+      {% endfor %}
+    </div>
+    <div class="form-group">
+      {{ form.body.label }} 
+      {{ form.body(class="form-control") }}
+      {% for error in form.body.errors %}
+            <span class="text-danger">{{ error }}</span>
+      {% endfor %}
+    </div>
+    <!--{{ form.submit(class="btn btn-primary") }}-->
+    {{ form.submit() }}
+  </form>
 {% endblock %}
-```
+'''

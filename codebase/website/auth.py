@@ -1,12 +1,12 @@
 from flask import Blueprint, render_template, request, flash, redirect, url_for
-from .models import User
+from .models import User, Email
 from werkzeug.security import generate_password_hash, check_password_hash
 from . import db  ##means from __init__.py import db
 from flask_login import login_user, login_required, logout_user, current_user
 from faker import Faker
 from website import app
 from werkzeug.utils import secure_filename
-from .forms import ResetPasswordForm
+from .forms import ResetPasswordForm, ComposeForm
 import os
 import uuid
 
@@ -81,20 +81,32 @@ def delete_user():
 @auth.route('/compose', methods=['GET', 'POST'])
 @login_required
 def compose():
-    if request.method == 'POST':
-        sender = current_user.id
-        recipient = request.form.get('recipient email')
-        subject = request.form.get('subject')
-        body = request.form.get('body')
+    form = ComposeForm()
 
-        recipient = User.query.filter_by(email=recipient).first()
-        '''if receiver_id: 
-            flash('Email sent successfully!', category='success')
+    if form.validate_on_submit():
+        #sender = current_user.id
+        recipient_email = form.recipient.data
+        subject = form.subject.data
+        body = form.body.data
+
+        recipient = User.query.filter_by(email=recipient_email).first() 
+
+        if recipient:
+            # Create a new email and save it in the database    
+            # sender=sender recipient=recipient.id
+            new_email = Email(
+                sender=current_user, 
+                recipient=recipient, 
+                subject=subject, 
+                body=body)
+            db.session.add(new_email)
+            db.session.commit()
+
+            flash('Email sent!', category='success')
             return redirect(url_for('auth.inbox'))
-        else:
-            flash('Email does not exist.', category='error') '''   
 
-    return render_template("compose.html", user=current_user)
+    #user=current_user
+    return render_template("compose.html", form=form)
 
 
 @auth.route('/sign-up', methods=['GET', 'POST'])

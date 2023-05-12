@@ -21,7 +21,9 @@ class User(db.Model, UserMixin):
     profile_picture = db.Column(db.String(150), default='default.jpg')
     notes = db.relationship('Note')
 
-    notes = db.relationship('Note')
+    # One-to-many relationship between User & Email
+    sent_emails = db.relationship('Email', foreign_keys='Email.user_id', backref='sender')
+    received_emails = db.relationship('Email', foreign_keys='Email.recipient_id', backref='recipient')
 
 class Message(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -33,10 +35,22 @@ class Message(db.Model):
         return f'<Message {self.id}>'
 
 class Email(db.Model):
+    # Unique identifier for each email
     id = db.Column(db.Integer, primary_key=True)
-    recipient = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
-    subject = db.Column(db.String(200), nullable=False)
-    body = db.Column(db.String(10000), nullable=False)
 
+    # User who sent/received the email
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    recipient_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+
+    # Email content
+    subject = db.Column(db.String(255), nullable=False)
+    body = db.Column(db.String(10000), nullable=False)
+    timestamp = db.Column(db.DateTime(timezone=True), default=func.now())
+
+    # Many-to-one relationship between Email & User
+    sender = db.relationship('User', foreign_keys=[user_id], backref='sent_emails')
+    recipient = db.relationship('User', foreign_keys=[recipient_id], backref='received_emails')
+
+    # For debugging/Logging purposes to output the email object
     def __repr__(self):
         return f'<Email {self.id}>'
