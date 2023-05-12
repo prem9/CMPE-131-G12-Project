@@ -23,15 +23,33 @@
                 </div>
             </div>
             <div class="col-sm-10">
-                <ul>
-                    {% for email in emails %}
-                        <li>
-                            <a href="/emails/{{ loop.index }}">{{ email.subject }}</a>
-                            <p>From: {{ email.from }}</p>
-                            <p>{{email.body}}</p>
-                        </li>
-            {% endfor %}
-            </ul>
+                <!-- Element to display sent emails -->
+                <div class="sent-emails">
+                    <h2>Sent Emails</h2>
+                    {% for email in sent_emails %}
+                        <div class="email">
+                            <h3>{{ email.subject }}</h3>
+                            <p>{{ email.body }}</p>
+                            <p>Sent to {{ email.recipient.name }}
+                            on {{ email.timestamp }}
+                            </p>
+                        </div>
+                    {% endfor %}
+                </div>
+
+                <!-- Element to display received emails -->
+                <div class="received-emails">
+                    <h2>Received Emails</h2>
+                    {% for email in received_emails %}
+                        <div class="email">
+                            <h3>{{ email.subject }}</h3>
+                            <p>{{ email.body }}</p>
+                            <p>Sent by {{ email.user_sent_email.name }}
+                            on {{ email.timestamp }}
+                            </p>
+                        </div>
+                    {% endfor %}
+                </div>
         </div>
     </div>
        

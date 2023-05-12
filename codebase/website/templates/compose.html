@@ -3,6 +3,13 @@
 {% block content %}
 <br />
   <h1>Compose Email</h1>
+
+  {% if error_message %}
+    <div class="alert alert-danger" role="alert">
+      {{ error_message }}
+    </div>
+  {% endif %}
+
   <form method="POST" action="{{ url_for('auth.compose') }}">
     {{ form.hidden_tag() }}
     <div class="form-group">
@@ -30,4 +37,5 @@
     {{ form.submit() }}
     <a href="/" class="btn btn-secondary">Cancel</a>
   </form>
+
 {% endblock %}

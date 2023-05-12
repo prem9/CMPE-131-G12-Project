@@ -10,7 +10,7 @@ class ResetPasswordForm(FlaskForm):
 
 # Create a form for composing an email
 class ComposeForm(FlaskForm):
-    recipient = StringField('To', validators=[DataRequired(message='Recipient(s)'), Email()])
+    recipient = StringField('To', validators=[DataRequired(message='Recipient'), Email()])
     subject = StringField('Subject', validators=[DataRequired(message='Please enter the subject'), Length(min=1, max=255)])
     body = TextAreaField('Body', validators=[DataRequired(message='Please enter the body'), Length(min=1, max=10000)])
     submit = SubmitField('Send')

@@ -23,8 +23,14 @@ class User(db.Model, UserMixin): # Database used to store data relating to users
     # One-to-many relationship between User & Email
     sent_emails = db.relationship('Email', foreign_keys='Email.user_id', backref='user_sent_emails', lazy=True)
     received_emails = db.relationship('Email', foreign_keys='Email.recipient_id', backref='emailed_recipient', lazy=True)
-    
-    #db.relationship('Email', foreign_keys='Email.recipient_id', backref='recipient')
+
+    # Method to retrieve the sent emails of the current user
+    def get_sent_emails(self):
+        return Email.query.filter_by(user_id=self.id).order_by(Email.timestamp.desc())
+
+    # Method to retrieve the received emails of the current user
+    def get_received_emails(self):
+        return Email.query.filter_by(recipient_id=self.id).order_by(Email.timestamp.desc())
 
 class Message(db.Model): # Database used to store data relating to the chat feature
     id = db.Column(db.Integer, primary_key=True)
