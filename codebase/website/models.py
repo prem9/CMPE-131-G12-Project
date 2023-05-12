@@ -21,8 +21,10 @@ class User(db.Model, UserMixin): # Database used to store data relating to users
     notes = db.relationship('Note')
 
     # One-to-many relationship between User & Email
-    sent_emails = db.relationship('Email', foreign_keys='Email.user_id', backref='sender')
-    received_emails = db.relationship('Email', foreign_keys='Email.recipient_id', backref='recipient')
+    sent_emails = db.relationship('Email', foreign_keys='Email.user_id', backref='user_sent_emails', lazy=True)
+    received_emails = db.relationship('Email', foreign_keys='Email.recipient_id', backref='emailed_recipient', lazy=True)
+    
+    #db.relationship('Email', foreign_keys='Email.recipient_id', backref='recipient')
 
 class Message(db.Model): # Database used to store data relating to the chat feature
     id = db.Column(db.Integer, primary_key=True)
@@ -33,7 +35,7 @@ class Message(db.Model): # Database used to store data relating to the chat feat
     def __repr__(self):
         return f'<Message {self.id}>'
 
-class Email(db.Model):
+class Email(db.Model): # Database used to store data relating to the email feature
     # Unique identifier for each email
     id = db.Column(db.Integer, primary_key=True)
 
