@@ -15,24 +15,40 @@
                     <ul>
                         <br />
                         <br />
+                        <br /> 
+                        <form action = "/compose" method="POST">
+                            <button type="submit" class="btn btn-primary btn-block" href="/compose">Compose</button>
+                        </form>
                         <br />
+                        <form action = "/refresh" method="POST">
+                            <button type="submit" class="btn btn-primary btn-block" href="/refresh">Refresh</button>
+                        </form>
+                        <br />             
+                        <form method="POST" action="{{url_for('auth.inbox')}}">
+                            <button class ="btn btn-primary btn-block" onclick="toggleMode()" href="{{url_for('auth.inbox')}}">Light/Dark Mode</button>
+                        </form>
+                        <br />
+                        <form action="/sent_emails" method="POST">
+                            <button type="submit" class="btn btn-primary btn-block" href="/sent_emails">View Sent Emails</button>
+                        </form>
+                        <!--
                         <div class="btn-group-toggle" data-toggle="buttons">
                             <form action = "/compose" method="POST">
-                                <button type="submit" class="btn btn-primary btn-block">Compose</button>
+                                <button type="submit" class="btn btn-primary btn-block" href="/compose">Compose</button>
                             </form>
                             <br />
                             <form action = "/refresh" method="POST">
-                                <button type="submit" class="btn btn-primary btn-block">Refresh</button>
+                                <button type="submit" class="btn btn-primary btn-block" href="/refresh">Refresh</button>
                             </form>
                             <br />             
                             <form method="POST" action="{{url_for('auth.inbox')}}">
-                                <button class ="btn btn-primary btn-block" onclick="toggleMode()">Light/Dark Mode</button>
+                                <button class ="btn btn-primary btn-block" onclick="toggleMode()" href="{{url_for('auth.inbox')}}">Light/Dark Mode</button>
                             </form>
                             <br />
                             <form action="/sent_emails" method="POST">
-                                <button type="submit" class="btn btn-primary btn-block">View Sent Emails</button>
+                                <button type="submit" class="btn btn-primary btn-block" href="/sent_emails">View Sent Emails</button>
                             </form>
-                        </div>
+                        </div>-->
                     </ul>
                 </div>
             </div>
@@ -40,18 +56,6 @@
                 <br />
                 <br />
                 <br />
-                <!--<div class="sent-emails">
-                    <h2>Sent Emails</h2>
-                    {% for email in sent_emails %}
-                        <div class="email">
-                            <h3>{{ email.subject }}</h3>
-                            <p>{{ email.body }}</p>
-                            <p>Sent to {{ email.recipient.name }}
-                            on {{ email.timestamp }}
-                            </p>
-                        </div>
-                    {% endfor %}
-                </div>-->
                 <div class="received-emails">
                     <h2>Received Emails</h2>
                     {% for email in received_emails %}
