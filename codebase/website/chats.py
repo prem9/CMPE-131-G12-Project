@@ -12,14 +12,17 @@ chats_BP = Blueprint('chats', __name__)
 @login_required
 def view_message():
     print('Get - related data')
-
     if request.method == 'POST':
+        #Retrives email value from the chat-view.html
         input_value = request.form['email-in']
+        #Checks if a value was inputted in the form
         if not input_value:
+            #gives a popup message in error category and then goes back to chat-view page
             flash('No email provided',category='error')
             return render_template('chat-view.html',user=current_user)
         user = User.query.filter_by(email=input_value).first()
         if not user:
+            # checks if email is invalid it gives pop up message of invalid
             flash("Invalid email..",category='error')
             return render_template('chat-view.html',user=current_user)
         message = Message.query.filter_by(sender_id=current_user.id, receiver_id=user.id).first()
