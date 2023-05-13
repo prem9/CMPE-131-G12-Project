@@ -1,0 +1,58 @@
+{% extends "base.html" %} 
+
+{% block title %}Sloth Mail{% endblock %} 
+
+{% block content %}
+    <h1 align="center">Sent Emails</h1>
+    <br />
+    <br />
+    <img src="{{ url_for('static', filename='sloth.png') }}" 
+        alt="Description of the image" width="300" height="200" class="shift-left"/>
+    <body class="{% if 'mode' in session and session['mode'] == 'dark' %}dark-mode{% endif %}">
+        <div class="row">
+            <div class="col-sm-2">
+                <div id="sent mail">
+                    <ul>
+                        <br />
+                        <br />
+                        <br />
+                        <form action = "/compose" method="POST">
+                            <button type="submit" class="btn btn-primary btn-block" href="/compose">Compose</button>
+                        </form>
+                        <br />
+                        <form action = "/refresh" method="POST">
+                            <button type="submit" class="btn btn-primary btn-block">Refresh</button>
+                        </form>
+                        <br />             
+                        <form method="POST" action="{{url_for('auth.inbox')}}">
+                            <button class ="btn btn-primary btn-block" onclick="toggleMode()">Light/Dark Mode</button>
+                        </form>
+                        <br />
+                        <form action="/" method="POST">
+                            <button type="submit" class="btn btn-primary btn-block" href="/">Back to inbox</button>
+                        </form>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-10">
+                <br />
+                <br />
+                <br />
+                <div class="sent-emails">
+                    <h2>Sent Emails</h2>
+                    {% for email in sent_emails %}
+                        <div class="email">
+                            <h3>{{ email.subject }}</h3>
+                            <p>{{ email.body }}</p>
+                            <p>Sent to {{ email.recipient.name }}
+                            on {{ email.timestamp }}
+                            </p>
+                        </div>
+                    {% endfor %}
+                </div>
+        </div>
+    </div>
+       
+    </body>
+    
+{% endblock %}
