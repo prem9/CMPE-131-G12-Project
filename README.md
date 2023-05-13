@@ -25,6 +25,7 @@ This project is not yet completed. Most implementations have been completed howe
     - Python 
     - Flask
     - SQLAlchemy
+    - Jinja2
     
  # Required Modules
  
