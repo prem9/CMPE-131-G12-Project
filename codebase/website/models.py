@@ -16,6 +16,7 @@ class User(db.Model, UserMixin): # Database used to store data relating to users
     password = db.Column(db.String(150))
     name = db.Column(db.String(150))
     bio = db.Column(db.String(1000))
+    gender = db.Column(db.String(100))
     first_name = db.Column(db.String(150))
     profile_picture = db.Column(db.String(150), default='default.jpg')
     notes = db.relationship('Note')

@@ -2,28 +2,37 @@
 
 {% block content %}
     
-    <h1 align="center">Inbox</h1>
-
-    <body>
+    <h1 align="center">Sloth Mail Inbox</h1>
+    <br />
+    <br />
+    <img src="{{ url_for('static', filename='sloth.png') }}" alt="Description of the image" width="300" height="200" class="shift-left"/>
+    <body class="{% if 'mode' in session and session['mode'] == 'dark' %}dark-mode{% endif %}">
         <div class="row">
             <div class="col-sm-2">
                 <div id="inbox">
                     <ul>
+                        <br />
+                        <br />
+                        <br />
                         <form action = "/compose" method="POST">
                             <button type="submit" class="btn btn-primary">Compose</button>
                         </form>
+                        <br />
                         <form action = "/refresh" method="POST">
                             <button type="submit" class="btn btn-primary">Refresh</button>
                         </form>
-
-                        <li><a href="/">Inbox</a></li>
-                        <li><a href="#">Sent</a></li>
-                        <li><a href="#">Trash</a></li>
+                        <br />             
+                        <form method="POST" action="{{url_for('auth.inbox')}}">
+                            <button class ="btn btn-primary" onclick="toggleMode()">Light/Dark Mode</button>
+                        </form>
                     </ul>
                 </div>
             </div>
             <div class="col-sm-10">
                 <!-- Element to display sent emails -->
+                <br />
+                <br />
+                <br />
                 <div class="sent-emails">
                     <h2>Sent Emails</h2>
                     {% for email in sent_emails %}

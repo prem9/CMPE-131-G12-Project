@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, flash, redirect, url_for
+from flask import Blueprint, render_template, request, flash, redirect, url_for, session
 from .models import User, Email
 from werkzeug.security import generate_password_hash, check_password_hash
 from . import db  ##means from __init__.py import db
@@ -122,7 +122,7 @@ def compose():
         else:
             error_message = 'Recipient email does not exist.'
 
-    return render_template("compose.html", form=form, error_message=error_message)
+    return render_template("compose.html", user=current_user, form=form, error_message=error_message)
 
 
 @auth.route('/sign-up', methods=['GET', 'POST'])
@@ -192,12 +192,16 @@ def update_profile():
     name = request.form['name']
     # Retrieve the updated bio from the form
     bio = request.form['bio']
+    # Retrieve the updated gender from the form
+    gender = request.form['gender']
     # Retrieve the current user from the database
     user = User.query.filter_by(id=current_user.id).first()
     # Update the user's name with the provided value
     user.name = name
     # Update the user's bio with the provided value
     user.bio = bio
+    # Update the user's gender with the provided value
+    user.gender = gender
     # Commit the changes to the database
     db.session.commit()
     
@@ -244,3 +248,12 @@ def reset_password():
         else:
             flash('Email does not exist', 'error') # Display an error message if the email doesn't exist
     return render_template('reset_password.html', form=form, user=current_user) # Render the reset_password.html template with the form and the current user
+
+@auth.route('/toggle-mode', methods=['POST'])
+@login_required
+def toggle_mode():
+    if 'mode' in session:
+        session['mode'] = 'light' if session['mode'] == 'dark' else 'dark'
+    else:
+        session['mode'] = 'dark'
+    return '', 204

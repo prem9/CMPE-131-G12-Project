@@ -12,14 +12,17 @@ chats_BP = Blueprint('chats', __name__)
 @login_required
 def view_message():
     print('Get - related data')
-
     if request.method == 'POST':
+        #Retrives email value from the chat-view.html
         input_value = request.form['email-in']
+        #Checks if a value was inputted in the form
         if not input_value:
+            #gives a popup message in error category and then goes back to chat-view page
             flash('No email provided',category='error')
             return render_template('chat-view.html',user=current_user)
         user = User.query.filter_by(email=input_value).first()
         if not user:
+            # checks if email is invalid it gives pop up message of invalid
             flash("Invalid email..",category='error')
             return render_template('chat-view.html',user=current_user)
         message = Message.query.filter_by(sender_id=current_user.id, receiver_id=user.id).first()
@@ -35,11 +38,15 @@ def delete_message():
     user_id = current_user.id
     if request.method == "POST":
         email2 = request.form['email']
+        if not email2:
+            flash('No email provided', category='error')
+            return render_template('delete_chat.html',user=current_user)
         user2 = User.query.filter_by(email=email2).first()
+        if not user2:
+            flash('No user with this email',category='error')
+            return render_template('delete_chat.html',user=current_user)
         chat1 = Message.query.filter_by(sender_id=user_id, receiver_id=user2.id).first()
         chat2 = Message.query.filter_by(receiver_id=user_id, sender_id=user2.id).first()
-        if not user2:
-            return render_template("delete_chat.html", user=current_user, error="invalid email")
         if not chat1:
             return render_template("delete_chat.html", user=current_user, error="No chat for this email")
         db.session.delete(chat1)
