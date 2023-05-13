@@ -22,7 +22,7 @@ Justin: 7-8
 8. User can sign out of their account
 9. User can reset their password
 10. User can view messages or emails
-11. Users should be able to view the emails that they have sent/received to another user
+11. Users should be able to view the emails that they have sent/received from another user
 12. System should allow users to change font style of whole web page
 13. User can increase and decrease the size of text for the whole web page
 
