@@ -3,7 +3,7 @@
 {% block title %}Sloth Mail{% endblock %} 
 
 {% block content %}
-    <h1 align="center">Sloth Mail Inbox</h1>
+    <h1 align="center">Sent Emails</h1>
     <br />
     <br />
     <img src="{{ url_for('static', filename='sloth.png') }}" 
@@ -11,7 +11,7 @@
     <body class="{% if 'mode' in session and session['mode'] == 'dark' %}dark-mode{% endif %}">
         <div class="row">
             <div class="col-sm-2">
-                <div id="inbox">
+                <div id="sent mail">
                     <ul>
                         <br />
                         <br />
@@ -29,8 +29,8 @@
                                 <button class ="btn btn-primary btn-block" onclick="toggleMode()">Light/Dark Mode</button>
                             </form>
                             <br />
-                            <form action="/sent_emails" method="POST">
-                                <button type="submit" class="btn btn-primary btn-block">View Sent Emails</button>
+                            <form action="/home" method="POST">
+                                <button type="submit" class="btn btn-primary btn-block">Back to inbox</button>
                             </form>
                         </div>
                     </ul>
@@ -40,25 +40,13 @@
                 <br />
                 <br />
                 <br />
-                <!--<div class="sent-emails">
+                <div class="sent-emails">
                     <h2>Sent Emails</h2>
                     {% for email in sent_emails %}
                         <div class="email">
                             <h3>{{ email.subject }}</h3>
                             <p>{{ email.body }}</p>
                             <p>Sent to {{ email.recipient.name }}
-                            on {{ email.timestamp }}
-                            </p>
-                        </div>
-                    {% endfor %}
-                </div>-->
-                <div class="received-emails">
-                    <h2>Received Emails</h2>
-                    {% for email in received_emails %}
-                        <div class="email">
-                            <h3>{{ email.subject }}</h3>
-                            <p>{{ email.body }}</p>
-                            <p>Sent by {{ email.user_sent_email.name }}
                             on {{ email.timestamp }}
                             </p>
                         </div>

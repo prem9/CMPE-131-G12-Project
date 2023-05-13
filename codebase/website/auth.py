@@ -15,17 +15,11 @@ auth = Blueprint('auth', __name__)
 @auth.route("/", methods=['GET', 'POST'])
 @login_required 
 def inbox():
-    
-    # Query the Email model for all emails belonging to the current user
-    #sent_emails = Email.query.filter_by(user_id=current_user.id).all()
-    sent_emails = current_user.get_sent_emails()
-
     # Query the Email model for all emails where the current user is a recipient
     received_emails = current_user.get_received_emails()
 
     # Render the inbox page template by passing the emails list to the template
-    return render_template("home.html", user=current_user, sent_emails=sent_emails, 
-                           received_emails=received_emails)
+    return render_template("home.html", user=current_user, received_emails=received_emails)
 
 # Route for the Login Page
 @auth.route('/login', methods=['GET', 'POST'])
@@ -257,3 +251,13 @@ def toggle_mode():
     else:
         session['mode'] = 'dark'
     return '', 204
+
+# Route for the sent_emails page
+@auth.route('/sent_emails', methods=['GET', 'POST'])
+@login_required
+def sent_emails():
+    # Query the Email model for all emails belonging to the current user
+    emails_sent = current_user.get_sent_emails()
+
+    # Render the sent_emails.html template with the emails and the current user
+    return render_template("sent_emails.html", user=current_user, emails_sent=emails_sent)
