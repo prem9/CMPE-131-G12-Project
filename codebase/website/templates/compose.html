@@ -1,4 +1,4 @@
-{% block title %}Compose Email{% endblock %}
+{% extends "base.html" %}{% block title %}Compose Email{% endblock %}
 
 {% block content %}
 <br />
@@ -34,7 +34,10 @@
       {% endfor %}
     </div>
     <!--{{ form.submit(class="btn btn-primary") }}-->
-    {{ form.submit() }}
+    <form action = "/" method="POST">
+      <button type="submit" class="btn btn-primary">Send</button>
+    </form>
+    <br />
     <a href="/" class="btn btn-secondary">Cancel</a>
   </form>
 

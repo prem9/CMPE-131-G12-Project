@@ -2,17 +2,26 @@
 
 {% block content %}
     
-    <h1 align="center"> Chat Page</h1>
-
+    <h1 align="center">Sloth Mail Chat</h1>
+    <br />
+    <br />
+    <img src="{{ url_for('static', filename='sloth.png') }}" alt="Description of the image" width="300" height="200" class="shift-left"/>
     <body>
         <div class="row">
             <div class="col-sm-2">
                 <div id="inbox">
                     <ul>
-                        <li><a href="/chathome">In</a></li>
-			<li><a href="/chat">New/Reply</a></li>
-                        <li><a href="/delete_chat">Delete</a></li>
-                        <li><a href="/chat-view">View</a></li>
+                        <br />
+                        <br />
+		             	<button class="btn btn-primary" type ="button" onclick="window.location.href='/chat'">New/Reply</button>
+                        <br />
+                        <br />
+                        <button class="btn btn-primary" type ="button" onclick="window.location.href='/delete_chat'">Delete</button>
+                        <br />
+                        <br />
+                        <button class="btn btn-primary" type ="button" onclick="window.location.href='/chat-view'">View</button>
+                        <br />
+                        <br />
                     </ul>
                 </div>
             </div>
@@ -27,6 +36,7 @@
             {% endfor %}
             </ul>
 	    <ul>
+            <br />
 		    <h1> Chats </h1>
 		    {{ table }}
 	    </ul>

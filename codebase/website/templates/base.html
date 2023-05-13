@@ -30,6 +30,40 @@
 
     <!-- Navigation bar with a dark background -->
   <body>
+    <script>
+      // Function to update the current time
+      function updateTime() {
+        var currentTime = new Date();
+        var hours = currentTime.getHours();
+        var minutes = currentTime.getMinutes();
+        var seconds = currentTime.getSeconds();
+    
+        minutes = (minutes < 10 ? "0" : "") + minutes;
+        seconds = (seconds < 10 ? "0" : "") + seconds;
+    
+        var timeString = hours + ":" + minutes + ":" + seconds;
+    
+        var currentTimeElement = document.getElementById("current-time");
+        currentTimeElement.innerHTML = timeString;
+        currentTimeElement.style.color = "white";
+      }
+    
+      setInterval(updateTime, 1000);
+    </script>
+
+    <script>
+      function toggleMode() {
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', '/toggle-mode', true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.onload = function () {
+          if (xhr.status === 204) {
+            document.documentElement.classList.toggle('dark-mode');
+          }
+        };
+        xhr.send();
+      }
+    </script>
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
@@ -55,7 +89,7 @@
           <a class="nav-item nav-link" id="createList" href="/list">Create List</a>
           <a class="nav-item nav-link" id="logout" href="/logout">Logout</a>
           <a class="nav-item nav-link" id="deleteUser" href="/delete-user">Delete Account</a>
-
+          <span id="current-time"></span>
           <!--If the user is not authenticated, display only the login and sign-up links-->
           {% else %}
           <a class="nav-item nav-link" id="login" href="/login">Login</a>
@@ -162,6 +196,28 @@
     margin-right: 300px;
   
   }
+
+  .dark-mode {
+    /* Add your dark mode styles here */
+    background-color: #202020;
+    color: #f0f0f0;
+  }
+
+  .shift-left {
+    margin-left: 400px;
+  }
+  
+  .shift-right {
+    margin-right: 50px;
+  }
+
+  .background-image {
+    background-image: url('static/background.jpg');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+  }
+  
+
 </style>
 
 <select id="input" class="input" onchange="changingFontStyle (this);">
@@ -177,6 +233,7 @@
      document.getElementById("content").style.fontFamily = fontstyle.value;
   }
 </script>
+
 
 {% endblock %}
 

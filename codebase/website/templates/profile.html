@@ -4,8 +4,12 @@
     
     <!--Heading for the user's profile page which includes the current user's username-->
     <h1 align="center">{{user.first_name}}'s Profile Page</h1>
-    <body>
+    <body class="{% if 'mode' in session and session['mode'] == 'dark' %}dark-mode{% endif %}">
 
+        <form method="POST" action="{{url_for('auth.profile')}}">
+            <button class ="btn btn-primary" onclick="toggleMode()">Light/Dark Mode</button>
+        </form>
+        
         <!--Displays the user's profile picture with images stored in the static folder in the website directory-->
         <img src="{{ url_for('static', filename='' + user.profile_picture) }}" alt="Profile Picture" class="img-thumbnail">
 
@@ -26,12 +30,18 @@
             <input type="text" name="name" value="{{ user.name }}" required>
             <br>
             <br>
+            <label for="name">Gender:</label>
+            <br>
+            <input type="text" name="gender" value="{{ user.gender }}" required>
+            <br>
+            <br>
             <!--Input field for user's biography-->
             <label for="bio">Bio:</label>
             <textarea name="bio" class="form-control" required>{{ user.bio }}</textarea>
             <!--Button to submit the form and save the changes made in the database-->
             <br>
             <button type="submit" class="btn btn-primary" value = "Save">Save</button>
+            
         </form>
     </body>
 {% endblock %}
