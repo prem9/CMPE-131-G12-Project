@@ -47,6 +47,32 @@ def delete_note():
 
     return jsonify({})
 
+@views.route('/delete-selected-emails', methods=['POST'])
+@login_required
+def delete_selected_emails():
+    emails_to_delete = request.json.get('emailsToDelete')
 
+    if not emails_to_delete:
+        flash('No emails selected to delete!', category='error')
+        return redirect(url_for('views.home'))
 
+    for email_id in emails_to_delete:
+        email = Email.query.get(email_id)
 
+        if not email:
+            continue
+
+        if email.recipient.id != current_user.id:
+            continue
+
+        db.session.delete(email)
+        db.session.commit()
+
+    flash('Selected emails deleted!', category='success')
+    return redirect(url_for('views.home'))
+
+@views.route('/', methods=['GET', 'POST'])
+@login_required
+def home():
+    received_emails = Email.query.filter_by(recipient=current_user).all()
+    return render_template("home.html", user=current_user, received_emails=received_emails)

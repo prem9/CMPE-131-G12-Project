@@ -49,6 +49,9 @@
                             </p>
                         </div>
                     {% endfor %}
+                    {% if sent_emails|length == 0 %}
+                        <p>No emails sent yet.</p>
+                    {% endif %}
                 </div>
         </div>
     </div>

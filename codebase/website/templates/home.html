@@ -21,34 +21,21 @@
                         </form>
                         <br />
                         <form action = "/refresh" method="POST">
-                            <button type="submit" class="btn btn-primary btn-block" href="/refresh">Refresh</button>
+                            <button type="submit" class="btn btn-primary btn-block">Refresh</button>
                         </form>
                         <br />             
                         <form method="POST" action="{{url_for('auth.inbox')}}">
-                            <button class ="btn btn-primary btn-block" onclick="toggleMode()" href="{{url_for('auth.inbox')}}">Light/Dark Mode</button>
+                            <button class ="btn btn-primary btn-block" onclick="toggleMode()">Light/Dark Mode</button>
                         </form>
                         <br />
                         <form action="/sent_emails" method="POST">
                             <button type="submit" class="btn btn-primary btn-block" href="/sent_emails">View Sent Emails</button>
                         </form>
-                        <!--
-                        <div class="btn-group-toggle" data-toggle="buttons">
-                            <form action = "/compose" method="POST">
-                                <button type="submit" class="btn btn-primary btn-block" href="/compose">Compose</button>
-                            </form>
-                            <br />
-                            <form action = "/refresh" method="POST">
-                                <button type="submit" class="btn btn-primary btn-block" href="/refresh">Refresh</button>
-                            </form>
-                            <br />             
-                            <form method="POST" action="{{url_for('auth.inbox')}}">
-                                <button class ="btn btn-primary btn-block" onclick="toggleMode()" href="{{url_for('auth.inbox')}}">Light/Dark Mode</button>
-                            </form>
-                            <br />
-                            <form action="/sent_emails" method="POST">
-                                <button type="submit" class="btn btn-primary btn-block" href="/sent_emails">View Sent Emails</button>
-                            </form>
-                        </div>-->
+                        <br />
+                        <form id="delete-selected-form" method="POST">
+                            <input type="hidden" id="delete-selected-emails" name="delete_selected_emails" value=""/>
+                            <button type="button" class="btn btn-danger btn-block" onclick="deleteSelectedEmails()">Delete Selected Emails</button>
+                        </form>
                     </ul>
                 </div>
             </div>
@@ -60,6 +47,7 @@
                     <h2>Received Emails</h2>
                     {% for email in received_emails %}
                         <div class="email">
+                            <input type="checkbox" name="selected_emails" value="{{ email.id }}" class="email-checkbox"/>
                             <h3>{{ email.subject }}</h3>
                             <p>{{ email.body }}</p>
                             <p>Sent by {{ email.user_sent_email.name }}
@@ -67,6 +55,9 @@
                             </p>
                         </div>
                     {% endfor %}
+                    {% if received_emails|length == 0 %}
+                        <p>No emails received yet.</p>
+                    {% endif %}
                 </div>
         </div>
     </div>
