@@ -737,14 +737,18 @@ This app is very straightfoward. Users can create an account and customize their
 # Capabilities:
 Sloth Mail has eight functionalities implemented. 
 They are as follows:
+
 - User Login
 - Logout 
 - Create User
 - Delete User
-- create a list
+- Create a List
 - Send an email
-- delete an email
-- send a message
+- Customize Profile
+- Send a message 
+- Resetting Password
+- Light/Dark Mode
+- Clock Timer
 
 # Contributions
 Pull requests are currently not being accepted from the public. 
