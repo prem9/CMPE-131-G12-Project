@@ -21,6 +21,55 @@ def inbox():
     # Render the inbox page template by passing the emails list to the template
     return render_template("home.html", user=current_user, received_emails=received_emails)
 
+# Route for refreshing the inbox page
+@auth.route('/refresh', methods=['POST'])
+def refresh():
+    return redirect('/')
+
+# Route for the Compose email page
+@auth.route('/compose', methods=['GET', 'POST'])
+@login_required
+def compose():
+    form = ComposeForm()
+    error_message = None
+
+    if form.validate_on_submit():
+        recipient_email = form.recipient.data
+        subject = form.subject.data
+        body = form.body.data
+
+        recipient = User.query.filter_by(email=recipient_email).first() 
+
+        if recipient:
+            # Create a new email and save it in the database
+            new_email = Email(
+                user_id=current_user.id, 
+                recipient=recipient, 
+                subject=subject, 
+                body=body)
+            db.session.add(new_email)
+            db.session.commit()
+
+            flash('Email sent!', category='success')
+            return redirect(url_for('auth.inbox'))
+        else:
+            error_message = 'Recipient email does not exist.'
+
+    return render_template("compose.html", user=current_user, 
+                           form=form, error_message=error_message)
+
+# Route for the sent_emails page
+@auth.route('/sent_emails', methods=['GET', 'POST'])
+@login_required
+def sent_emails():
+    # Query the Email model for all emails belonging to the current user
+    emails_sent = current_user.get_sent_emails()
+    
+    # Render the sent_emails.html template with the emails and the current user
+    return render_template("sent_emails.html", user=current_user, emails_sent=emails_sent)
+def refresh_sent_emails():
+    return redirect('sent_emails.html')
+
 # Route for the Login Page
 @auth.route('/login', methods=['GET', 'POST'])
 def login():
@@ -86,37 +135,6 @@ def delete_user():
             flash('Email does not exist.', category='error')
     # Render the delete user page template
     return render_template("delete_user.html", user=current_user)
-
-# Route for the Compose email page
-@auth.route('/compose', methods=['GET', 'POST'])
-@login_required
-def compose():
-    form = ComposeForm()
-    error_message = None
-
-    if form.validate_on_submit():
-        recipient_email = form.recipient.data
-        subject = form.subject.data
-        body = form.body.data
-
-        recipient = User.query.filter_by(email=recipient_email).first() 
-
-        if recipient:
-            # Create a new email and save it in the database
-            new_email = Email(
-                user_id=current_user.id, 
-                recipient=recipient, 
-                subject=subject, 
-                body=body)
-            db.session.add(new_email)
-            db.session.commit()
-
-            flash('Email sent!', category='success')
-            return redirect(url_for('auth.inbox'))
-        else:
-            error_message = 'Recipient email does not exist.'
-
-    return render_template("compose.html", user=current_user, form=form, error_message=error_message)
 
 
 @auth.route('/sign-up', methods=['GET', 'POST'])
@@ -222,11 +240,6 @@ def upload_profile_picture():
 
     return redirect(url_for('auth.profile')) # Redirect the user to the profile page
 
-# Route for refreshing the inbox page
-@auth.route('/refresh', methods=['POST'])
-def refresh():
-    return redirect('/')
-
 # Route for the reset password page
 @auth.route('/reset-password', methods=['GET', 'POST'])
 def reset_password():
@@ -251,13 +264,3 @@ def toggle_mode():
     else:
         session['mode'] = 'dark'
     return '', 204
-
-# Route for the sent_emails page
-@auth.route('/sent_emails', methods=['GET', 'POST'])
-@login_required
-def sent_emails():
-    # Query the Email model for all emails belonging to the current user
-    emails_sent = current_user.get_sent_emails()
-
-    # Render the sent_emails.html template with the emails and the current user
-    return render_template("sent_emails.html", user=current_user, emails_sent=emails_sent)

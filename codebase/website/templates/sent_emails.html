@@ -17,10 +17,10 @@
                         <br />
                         <br />
                         <form action = "/compose" method="POST">
-                            <button type="submit" class="btn btn-primary btn-block" href="/compose">Compose</button>
+                            <button type="submit" class="btn btn-primary btn-block">Compose</button>
                         </form>
                         <br />
-                        <form action = "/refresh" method="POST">
+                        <form action = "/sent_emails" method="POST">
                             <button type="submit" class="btn btn-primary btn-block">Refresh</button>
                         </form>
                         <br />             
@@ -29,7 +29,7 @@
                         </form>
                         <br />
                         <form action="/" method="POST">
-                            <button type="submit" class="btn btn-primary btn-block" href="/">Back to inbox</button>
+                            <button type="submit" class="btn btn-primary btn-block">Back to inbox</button>
                         </form>
                     </ul>
                 </div>
@@ -40,7 +40,7 @@
                 <br />
                 <div class="sent-emails">
                     <h2>Sent Emails</h2>
-                    {% for email in sent_emails %}
+                    {% for email in emails_sent | reverse %}
                         <div class="email">
                             <h3>{{ email.subject }}</h3>
                             <p>{{ email.body }}</p>
