@@ -4,11 +4,6 @@ The aim of Sloth Mail is to provide users with a free and easy to use form of co
 
 # About This Project:
     
-
-
-# Project Status:
-This project is not yet completed. Most implementations have been completed however there is some customization that still needs to be  done. 
-
 # Authors:
  Justin Chen (@jchen147)
  
